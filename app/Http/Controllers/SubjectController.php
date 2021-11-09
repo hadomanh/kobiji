@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
+    private $perPage = 5;
+    private $subject;
+
+    public function __construct(Subject $subject) {
+        $this->subject = $subject;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view('subject.index');
+        $subjects = Subject::orderBy('updated_at', 'desc')->paginate($this->perPage);
+        return view('subject.index')->with(compact('subjects'));
     }
 
     /**
@@ -35,7 +43,17 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = new Subject();
+        $subject->name = $request->name;
+        $subject->code = $request->code;
+        $subject->to = $request->to;
+        $subject->from = $request->from;
+        $subject->description = $request->description;
+        $subject->limit = $request->limit;
+        
+        $subject->save();
+
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -46,7 +64,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subject.show')->with(compact('subject'));
     }
 
     /**
@@ -57,7 +75,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('subject.edit')->with(compact('subject'));
     }
 
     /**
@@ -69,7 +87,16 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->name = $request->name;
+        $subject->code = $request->code;
+        $subject->to = $request->to;
+        $subject->from = $request->from;
+        $subject->description = $request->description;
+        $subject->limit = $request->limit;
+        
+        $subject->save();
+
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -78,8 +105,8 @@ class SubjectController extends Controller
      * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy($id)
     {
-        //
+        return $this->subject->findOrFail($id)->delete();
     }
 }

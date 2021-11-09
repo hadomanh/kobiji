@@ -22,4 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'HomeController@logout')->name('logout');
-Route::resource('subjects', SubjectController::class);
+Route::resource('subjects', SubjectController::class)->except(['destroy']);

@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    //
+    protected $fillable = [
+        'name',
+        'code',
+        'description',
+        'limit',
+    ];
+
+    public function students() {
+        return $this->belongsToMany('App\User' , 'student_subject', 'subject_id', 'student_id')->withTimestamps()->withPivot('midterm', 'endterm');
+    }
 }

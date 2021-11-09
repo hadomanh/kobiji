@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FTXFUND Admin</title>
+  <title>KOBIJI Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,8 +29,6 @@
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/summernote/summernote-bs4.min.css') }}">
-
-  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -156,6 +154,8 @@
 <script src="{{ asset('bower_components/admin-lte/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('bower_components/admin-lte/dist/js/pages/dashboard.js') }}"></script>
+
+<script src="{{ asset('js/script.js') }}"></script>
 
 @stack('script')
 

@@ -3,18 +3,19 @@
 @section('content')
 <div class="card card-warning">
     <div class="card-header">
-      <h3 class="card-title">Create Subject</h3>
+      <h3 class="card-title">Edit Subject</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <form action="{{ route('subjects.store') }}" method="POST" autocomplete="off">
+      <form action="{{ route('subjects.update', $subject->id) }}" method="POST" autocomplete="off">
         @csrf
+        @method('PUT')
         <div class="row">
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('Name') }}:</label>
-                <input type="text" name="name" class="form-control" placeholder="Name..." required>
+                <input type="text" name="name" class="form-control" placeholder="Name..." value="{{ $subject->name }}" required>
               </div>
             </div>
 
@@ -22,7 +23,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('Code') }}:</label>
-                <input type="text" name="code" class="form-control" placeholder="Code..." required>
+                <input type="text" name="code" class="form-control" placeholder="Code..." value="{{ $subject->code }}" required>
               </div>
               
             </div>
@@ -31,7 +32,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('Description') }}:</label>
-                <input type="text" name="description" class="form-control" placeholder="Description..." required>
+                <input type="text" name="description" class="form-control" value="{{ $subject->description }}" placeholder="Description..." required>
               </div>
             </div>
 
@@ -39,7 +40,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('Limit') }}:</label>
-                <input type="number" name="limit" class="form-control" placeholder="Limit..." required>
+                <input type="number" name="limit" class="form-control" placeholder="Limit..." value="{{ $subject->limit }}" required>
               </div>
             </div>
 
@@ -47,7 +48,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('From') }}:</label>
-                <input type="date" name="from" class="form-control" placeholder="From..." required>
+                <input type="date" name="from" class="form-control" value="{{ date('Y-m-d', strtotime($subject->from)) }}" placeholder="From..." required>
               </div>
             </div>
 
@@ -55,7 +56,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('To') }}:</label>
-                <input type="date" name="to" class="form-control" placeholder="To..." required>
+                <input type="date" name="to" class="form-control" value="{{ date('Y-m-d', strtotime($subject->to)) }}" placeholder="To..." required>
               </div>
             </div>
 
@@ -65,7 +66,7 @@
 
         <div class="row">
             <div class="col-3"></div>
-            <button class="btn btn-primary col-6" type="submit">{{ __('Submit') }}</button>
+            <button class="btn btn-outline-warning col-6" type="submit">{{ __('Update') }}</button>
         </div>
         <br>
         <div class="row">

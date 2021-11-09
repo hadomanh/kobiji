@@ -18,8 +18,9 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('description');
-            $table->timestamps('from');
-            $table->timestamps('to');
+            $table->integer('limit');
+            $table->dateTime('from');
+            $table->dateTime('to');
             $table->timestamps();
         });
     }
