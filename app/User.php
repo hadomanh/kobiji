@@ -20,6 +20,7 @@ class User extends Authenticatable
         'email',
         'role',
         'avatar',
+        'active',
         'password',
     ];
 
@@ -42,6 +43,15 @@ class User extends Authenticatable
     ];
 
     public function subjects() {
-        return $this->belongsToMany(Subject::class);
+        return $this->belongsToMany('App\Models\Subject' , 'student_subject', 'student_id', 'subject_id')->withTimestamps()->withPivot('midterm', 'endterm');
+    }
+
+    function getAverage() {
+        $subjects = $this->subjects;
+        $total = 0;
+        foreach ($subjects as $subject) {
+            $total += $subject->pivot->midterm * $subject->midterm + $subject->pivot->endterm * $subject->endterm;
+        }
+        return $total / count($subjects);
     }
 }

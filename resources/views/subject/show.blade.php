@@ -20,7 +20,7 @@
           <div class="row">
             <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
               <div class="row">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-3">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
                       <span class="info-box-text text-center text-muted">{{ __('Name') }}</span>
@@ -28,7 +28,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-3">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
                       <span class="info-box-text text-center text-muted">{{ __('Code') }}</span>
@@ -36,7 +36,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-4">
+
+                <div class="col-12 col-sm-3">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
                       <span class="info-box-text text-center text-muted">{{ __('Quota') }}</span>
@@ -44,6 +45,16 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">{{ __('Midterm / Endterm') }}</span>
+                      <span class="info-box-number text-center text-muted mb-0">{{ $subject->midterm . ' / ' . $subject->endterm }}</span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
               <div class="row">
                 <div class="col-12">
@@ -78,8 +89,8 @@
                                                   <td>{{ $loop->index + 1 }}</td>
                                                   <td>{{ $student->name }}</td>
                                                   <td>{{ $student->email }}</td>
-                                                  <td>{{ $student->midterm ?? 'Not updated yet' }}</td>
-                                                  <td>{{ $student->endterm ?? 'Not updated yet' }}</td>
+                                                  <td>{{ $student->midterm ?? __('Not updated yet') }}</td>
+                                                  <td>{{ $student->endterm ?? __('Not updated yet') }}</td>
                                               </tr>
                                               
                                           @endforeach

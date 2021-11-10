@@ -10,6 +10,8 @@ class Subject extends Model
         'name',
         'code',
         'description',
+        'midterm',
+        'endterm',
         'limit',
     ];
 

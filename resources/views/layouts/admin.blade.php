@@ -65,7 +65,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('bower_components/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="javascript:void(0)" class="d-block">{{ Auth::user()->name }}</a>
@@ -79,7 +79,32 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fas fa-user"></i>
+              <p>
+                User
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('users.index', ['role' => 'student']) }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Student</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('users.index', 'admin') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Admin</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="fas fa-book"></i>
               <p>
                 Subjects
                 <i class="right fas fa-angle-left"></i>

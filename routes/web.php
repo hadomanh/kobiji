@@ -23,3 +23,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'HomeController@logout')->name('logout');
 Route::resource('subjects', SubjectController::class)->except(['destroy']);
+Route::resource('users', UserController::class)->except(['index']);
+Route::get('/users/view/{role}', 'UserController@index')->name('users.index');
+Route::get('/users/toggle/{user}', 'UserController@toggle')->name('users.toggle');

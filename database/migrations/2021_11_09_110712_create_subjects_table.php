@@ -18,6 +18,8 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('description');
+            $table->double('midterm')->default(0.3);
+            $table->double('endterm')->default(0.7);
             $table->integer('limit');
             $table->dateTime('from');
             $table->dateTime('to');

@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $user->name = 'Manager';
         $user->role = 'manager';
         $user->password = bcrypt('123456');
-        $user->avatar = asset('bower_components/admin-lte/dist/img/user2-160x160.jpg');
+        $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
 
         $user->save();
 
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
             $user->name = 'Student ' . $i;
             $user->role = 'student';
             $user->password = bcrypt('123456');
-            $user->avatar = asset('bower_components/admin-lte/dist/img/user2-160x160.jpg');
+            $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
 
             $user->save();
 
