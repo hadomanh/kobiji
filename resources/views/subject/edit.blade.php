@@ -25,7 +25,6 @@
                 <label>{{ __('Code') }}:</label>
                 <input type="text" name="code" class="form-control" placeholder="Code..." value="{{ $subject->code }}" required>
               </div>
-              
             </div>
 
             <div class="col-sm-4">
@@ -57,6 +56,22 @@
               <div class="form-group">
                 <label>{{ __('To') }}:</label>
                 <input type="date" name="to" class="form-control" value="{{ date('Y-m-d', strtotime($subject->to)) }}" placeholder="To..." required>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
+                <label>{{ __('Midterm Ratio') }}:</label>
+                <input type="text" name="midterm" class="form-control" placeholder="Midterm..." value="{{ $subject->midterm }}" required>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
+                <label>{{ __('Endterm Ratio') }}:</label>
+                <input type="text" name="endterm" class="form-control" placeholder="Endterm..." value="{{ $subject->endterm }}" required>
               </div>
             </div>
 

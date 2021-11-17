@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/summernote/summernote-bs4.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -123,6 +126,12 @@
                   <p>Manage</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('subjects.registration') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Students</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -181,6 +190,9 @@
 <script src="{{ asset('bower_components/admin-lte/dist/js/pages/dashboard.js') }}"></script>
 
 <script src="{{ asset('js/script.js') }}"></script>
+
+<!-- Select2 -->
+<script src="{{ asset('bower_components/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
 
 @stack('script')
 

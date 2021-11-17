@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\User;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -93,6 +94,8 @@ class SubjectController extends Controller
         $subject->from = $request->from;
         $subject->description = $request->description;
         $subject->limit = $request->limit;
+        $subject->midterm = $request->midterm;
+        $subject->endterm = $request->endterm;
         
         $subject->save();
 
@@ -108,5 +111,21 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         return $this->subject->findOrFail($id)->delete();
+    }
+
+    public function registration() {
+        $subjects = Subject::orderBy('updated_at', 'desc')->paginate($this->perPage);
+        return view('subject.registration')->with(compact('subjects'));
+    }
+
+    public function registrationDetail(Subject $subject) {
+        $students = User::where('role', 'student')->where('active', true)->get();
+        return view('subject.registration-detail')->with(compact('subject', 'students'));
+    }
+
+    public function registrationSubmit(Request $request, Subject $subject) {
+        $students = $request->students;
+        $subject->students()->sync($students);
+        return redirect()->route('subjects.registration');
     }
 }
