@@ -48,8 +48,14 @@ class User extends Authenticatable
 
     function getAverage() {
         $subjects = $this->subjects;
+        if (count($subjects) == 0) {
+            return 0;
+        }
         $total = 0;
         foreach ($subjects as $subject) {
+            if ($subject->pivot->midterm == -1 || $subject->pivot->endterm == -1) {
+                continue;
+            }
             $total += $subject->pivot->midterm * $subject->midterm + $subject->pivot->endterm * $subject->endterm;
         }
         return $total / count($subjects);

@@ -20,12 +20,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/logout', 'HomeController@logout')->name('logout');
-Route::get('/subjects/registration', 'SubjectController@registration')->name('subjects.registration');
-Route::get('/subjects/registration/{subject}', 'SubjectController@registrationDetail')->name('subjects.registration.detail');
-Route::put('/subjects/registration/{subject}', 'SubjectController@registrationSubmit')->name('subjects.registration.submit');
-Route::resource('subjects', SubjectController::class)->except(['destroy']);
-Route::resource('users', UserController::class)->except(['index']);
-Route::get('/users/view/{role}', 'UserController@index')->name('users.index');
-Route::get('/users/toggle/{user}', 'UserController@toggle')->name('users.toggle');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/logout', 'HomeController@logout')->name('logout');
+    Route::get('/subjects/registration', 'SubjectController@registration')->name('subjects.registration');
+    Route::get('/subjects/registration/{subject}', 'SubjectController@registrationDetail')->name('subjects.registration.detail');
+    Route::put('/subjects/registration/{subject}', 'SubjectController@registrationSubmit')->name('subjects.registration.submit');
+    Route::resource('subjects', SubjectController::class)->except(['destroy']);
+    Route::resource('users', UserController::class)->except(['index']);
+    Route::get('/users/edit-password/{user}', 'UserController@editPassword')->name('users.edit.password');
+    Route::put('/users/update-password/{user}', 'UserController@updatePassword')->name('users.update.password');
+    Route::get('/users/view/{role}', 'UserController@index')->name('users.index');
+    Route::get('/users/toggle/{user}', 'UserController@toggle')->name('users.toggle');
+});
+
+

@@ -89,8 +89,8 @@
                                                   <td>{{ $loop->index + 1 }}</td>
                                                   <td>{{ $student->name }}</td>
                                                   <td>{{ $student->email }}</td>
-                                                  <td>{{ $student->midterm ?? __('Not updated yet') }}</td>
-                                                  <td>{{ $student->endterm ?? __('Not updated yet') }}</td>
+                                                  <td>{{ $student->pivot->midterm >= 0 ? $student->pivot->midterm : __('Not updated yet') }}</td>
+                                                  <td>{{ $student->pivot->endterm >= 0 ? $student->pivot->endterm : __('Not updated yet') }}</td>
                                               </tr>
                                               
                                           @endforeach

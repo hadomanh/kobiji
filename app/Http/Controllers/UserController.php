@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Throwable;
 
 class UserController extends Controller
 {
@@ -33,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -44,7 +47,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->role = $request->role;
+            $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
+            $user->active = true;
+            $user->save();
+
+            return redirect()->route('users.index', $user->role);
+        } catch (Throwable $e) {
+            return Redirect::back()->withErrors([
+                'error' => $e->getMessage(),
+                'email' => $request->email
+            ]);
+        }
+    
+        
     }
 
     /**
@@ -64,9 +85,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.edit')->with(compact('user'));
     }
 
     /**
@@ -76,9 +97,35 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $currentMillis = round(microtime(true) * 1000);
+        if($request->hasFile('avatar')){
+            $avatarFileName = $currentMillis . '.' . $request->file('avatar')->extension();
+            $user->avatar = 'storage/' . $request->file('avatar')->storeAs('avatar', $avatarFileName, 'public');
+        }
+        $user->name = $request->name;
+        $user->save();
+        return redirect()->route('users.index', $user->role);
+    }
+
+    public function editPassword(User $user)
+    {
+        return view('user.edit-password')->with(compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        if (Hash::check($request->oldPassword, $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return redirect()->route('users.index', $user->role);
+        }
+
+        return Redirect::back()->withErrors([
+            'error' => 'Old Password Wrong',
+            'email' => $user->email
+        ]);
     }
 
     /**

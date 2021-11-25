@@ -17,8 +17,8 @@ class CreateStudentSubjectTable extends Migration
             $table->foreignId('student_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('subject_id')->constrained('subjects')->onUpdate('cascade')->onDelete('cascade');
             $table->primary(['student_id', 'subject_id']);
-            $table->double('midterm')->default(0);
-            $table->double('endterm')->default(0);
+            $table->double('midterm')->default(-1);
+            $table->double('endterm')->default(-1);
             $table->timestamps();
         });
     }

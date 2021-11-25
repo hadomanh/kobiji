@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -46,6 +48,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="javascript:void(0)" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('users.edit', Auth::user()->id) }}" class="nav-link">Update information</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('users.edit.password', Auth::user()->id) }}" class="nav-link">Change password</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('logout') }}" class="nav-link">Logout</a>
@@ -67,8 +75,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        
         <div class="image">
-          <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle elevation-2" style="width: 35px; height: 35px;" alt="User Image">
         </div>
         <div class="info">
           <a href="javascript:void(0)" class="d-block">{{ Auth::user()->name }}</a>
@@ -99,6 +108,12 @@
                 <a href="{{ route('users.index', 'admin') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('users.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create</p>
                 </a>
               </li>
             </ul>
