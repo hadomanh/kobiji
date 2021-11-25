@@ -30,6 +30,22 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
+                <label>{{ __('Number of sessions') }}:</label>
+                <input type="text" name="session" class="form-control" placeholder="'Number of sessions..." required>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
+                <label>{{ __('Teacher') }}:</label>
+                <input type="text" name="teacher" class="form-control" placeholder="Teacher..." required>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
                 <label>{{ __('Description') }}:</label>
                 <input type="text" name="description" class="form-control" placeholder="Description..." required>
               </div>

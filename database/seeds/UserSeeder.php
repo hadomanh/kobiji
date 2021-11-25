@@ -26,6 +26,8 @@ class UserSeeder extends Seeder
         $subject->name = 'Math';
         $subject->code = 'IT1102';
         $subject->description = 'Math';
+        $subject->teacher = 'Mr. Quang';
+        $subject->session = 15;
         $subject->from = now();
         $subject->to = now()->addDays(10);
         $subject->limit = 20;
@@ -54,6 +56,8 @@ class UserSeeder extends Seeder
             $subject = new Subject();
             $subject->name = 'Subject ' . $i;
             $subject->code = 'IT120' . $i;
+            $subject->teacher = 'Mr. Quang';
+            $subject->session = 15;
             $subject->description = 'Math';
             $subject->from = now();
             $subject->to = now()->addDays(10);

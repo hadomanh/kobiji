@@ -33,8 +33,13 @@
             <th style="width: 10px">#</th>
             <th>{{ __('Name') }}</th>
             <th>{{ __('Code') }}</th>
-            <th>{{ __('Enrollment') }}</th>
-            <th></th>
+            <th>{{ __('説明') }}</th>
+            <th class="text-center">{{ __('セッション数') }}</th>
+            <th>{{ __('教師') }}</th>
+            <th class="text-center">{{ __('Enrollment') }}</th>
+            <th>{{ __('始まる') }}</th>
+            <th>{{ __('完了') }}</th>
+            <th>{{ __('アクション') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +48,12 @@
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $subject->name }}</td>
                     <td>{{ $subject->code }}</td>
-                    <td>{{ $subject->students->count() }} / {{ $subject->limit }}</td>
+                    <td>{{ $subject->description }}</td>
+                    <td class="text-center">{{ $subject->session }}</td>
+                    <td>{{ $subject->teacher }}</td>
+                    <td class="text-center">{{ $subject->students->count() }} / {{ $subject->limit }}</td>
+                    <td>{{ date('d M, Y', strtotime($subject->from)) }}</td>
+                    <td>{{ date('d M, Y', strtotime($subject->to)) }}</td>
                     <td>
                         <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-outline-primary">
                             <i class="fas fa-eye"></i> {{ __('View') }}
