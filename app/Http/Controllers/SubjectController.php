@@ -132,4 +132,28 @@ class SubjectController extends Controller
         $subject->students()->sync($students);
         return redirect()->route('subjects.registration');
     }
+
+    public function grading() {
+        $subjects = Subject::orderBy('updated_at', 'desc')->paginate($this->perPage);
+        return view('subject.grading')->with(compact('subjects'));
+    }
+
+    public function gradingDetail(Subject $subject) {
+        $students = $subject->students()->get();
+        return view('subject.grading-detail')->with(compact('subject', 'students'));
+    }
+
+    public function gradingSubmit(Request $request, Subject $subject) {
+        $students = array();
+        
+        foreach ($request->students as $student) {
+            $students[$student['id']] = [
+                'midterm' => $student['midterm'],
+                'endterm' => $student['endterm'],
+            ];
+        }
+        $subject->students()->sync($students);
+        
+        return redirect()->route('subjects.grading');
+    }
 }
