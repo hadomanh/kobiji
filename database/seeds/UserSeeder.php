@@ -22,6 +22,15 @@ class UserSeeder extends Seeder
 
         $user->save();
 
+        $user = new User();
+        $user->email = 'admin@gmail.com';
+        $user->name = 'Admin';
+        $user->role = 'admin';
+        $user->password = bcrypt('123456');
+        $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
+
+        $user->save();
+
         $subject = new Subject();
         $subject->name = 'Math';
         $subject->code = 'IT1102';

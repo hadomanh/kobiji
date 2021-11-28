@@ -47,8 +47,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="javascript:void(0)" class="nav-link">Home</a>
+        <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
+      @if (Auth::user()->role == 'student')
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{{ route('users.show', Auth::user()->id) }}" class="nav-link">About me</a>
+        </li>
+      @endif
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('users.edit', Auth::user()->id) }}" class="nav-link">Update information</a>
       </li>
@@ -84,81 +89,83 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="fas fa-user"></i>
-              <p>
-                User
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('users.index', ['role' => 'student']) }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Student</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('users.index', 'admin') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Admin</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('users.create') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Create</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+      @if (Auth::user()->role !== 'student')
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link">
+                <i class="fas fa-user"></i>
+                <p>
+                  User
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('users.index', ['role' => 'student']) }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Student</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('users.index', 'admin') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Admin</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('users.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
 
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="fas fa-book"></i>
-              <p>
-                Subjects
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('subjects.create') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Create</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('subjects.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('subjects.registration') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Students</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('subjects.grading') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Grading</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link">
+                <i class="fas fa-book"></i>
+                <p>
+                  Subjects
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('subjects.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('subjects.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Manage</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('subjects.registration') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Students</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('subjects.grading') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Grading</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      @endif
     </div>
     <!-- /.sidebar -->
   </aside>

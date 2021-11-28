@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('subjects')->group(function () {
+Route::prefix('subjects')->middleware(['admin.only'])->group(function () {
     Route::delete('/{id}', [SubjectController::class, 'destroy'])->name('api.subjects.delete');
 });

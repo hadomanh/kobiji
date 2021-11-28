@@ -55,15 +55,17 @@
                     <td>{{ date('d M, Y', strtotime($subject->from)) }}</td>
                     <td>{{ date('d M, Y', strtotime($subject->to)) }}</td>
                     <td>
-                        <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-outline-primary">
-                            <i class="fas fa-eye"></i> {{ __('View') }}
-                        </a>
-                      <a class="btn btn-outline-warning" href="{{ route('subjects.edit', $subject->id) }}">
-                        <i class="fas fa-edit"></i> {{ __('Edit') }}
+                      <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-outline-primary">
+                          <i class="fas fa-eye"></i> {{ __('View') }}
                       </a>
-                      <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.subjects.delete', $subject->id) }}" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-trash"></i> {{ __('Delete') }}
-                      </div>
+                      @if (Auth::user()->role == 'admin')
+                        <a class="btn btn-outline-warning" href="{{ route('subjects.edit', $subject->id) }}">
+                          <i class="fas fa-edit"></i> {{ __('Edit') }}
+                        </a>
+                        <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.subjects.delete', $subject->id) }}" data-toggle="modal" data-target="#modal-default">
+                          <i class="fas fa-trash"></i> {{ __('Delete') }}
+                        </div>
+                      @endif
                     </td>
                 </tr>
             @endforeach
