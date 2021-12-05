@@ -65,11 +65,11 @@
                                       <thead>
                                         <tr>
                                           <th>#</th>
-                                          <th>{{ __('Name') }}</th>
-                                          <th>{{ __('Code') }}</th>
-                                          <th class="text-center">{{ __('Midterm') }}</th>
-                                          <th class="text-center">{{ __('Endterm') }}</th>
-                                          <th class="text-center">{{ __('Summary') }}</th>
+                                          <th>{{ __('コース名') }}</th>
+                                          <th>{{ __('コード') }}</th>
+                                          <th class="text-center">{{ __('中間テスト') }}</th>
+                                          <th class="text-center">{{ __('期末テスト') }}</th>
+                                          <th class="text-center">{{ __('最終成績') }}</th>
                                         </tr>
                                       </thead>
                                       <tbody>
