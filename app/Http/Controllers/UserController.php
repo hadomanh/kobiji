@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Throwable;
@@ -25,7 +26,10 @@ class UserController extends Controller
      */
     public function index($role)
     {
-        $users = $this->user->where('role', $role)->orderBy('updated_at', 'desc')->paginate($this->perPage);
+        $users = $this->user->where([
+            ['role', '=', $role],
+            ['id', '<>', Auth::user()->id]
+        ])->orderBy('updated_at', 'desc')->paginate($this->perPage);
         return view('user.index', compact('users'));
     }
 
