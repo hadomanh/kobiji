@@ -32,7 +32,7 @@
               </li>
             </ul>
 
-            <a href="{{ route('users.index', 'student')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('Back') }}</b></a>
+            <a href="{{ route('home')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('Back') }}</b></a>
           </div>
           <!-- /.card-body -->
         </div>

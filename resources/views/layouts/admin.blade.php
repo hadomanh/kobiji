@@ -85,7 +85,11 @@
           <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle elevation-2" style="width: 35px; height: 35px;" alt="User Image">
         </div>
         <div class="info">
-          <a href="javascript:void(0)" class="d-block">{{ Auth::user()->name }}</a>
+          @if (Auth::user()->role == 'student')
+            <a href="{{ route('users.show', Auth::user()->id) }}" class="d-block">{{ Auth::user()->name }}</a>
+          @else
+            <a href="javascript:void(0)" class="d-block">{{ Auth::user()->name }}</a>
+          @endif
         </div>
       </div>
 
