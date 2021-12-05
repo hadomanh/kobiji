@@ -46,6 +46,14 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
+                <label>{{ __('Target') }}:</label>
+                <input type="text" name="target" class="form-control" placeholder="Target..." value="{{ $subject->target }}" required>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
                 <label>{{ __('Description') }}:</label>
                 <input type="text" name="description" class="form-control" value="{{ $subject->description }}" placeholder="Description..." required>
               </div>

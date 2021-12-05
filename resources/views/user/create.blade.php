@@ -69,7 +69,7 @@
     
             <div class="row">
                 <div class="col-3"></div>
-                <button class="btn btn-primary col-6 d-none" id="submitBtn" type="submit">{{ __('Submit') }}</button>
+                <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('Submit') }}</button>
             </div>
             <br>
             <div class="row">
@@ -92,15 +92,15 @@
         const password = $("#password-first").val();
         const confirmPassword = $("#password-second").val();
 
-        const condition1 = password.length >= 6;
+        const condition1 = password.length >= 8 && password.length <= 30;
         const condition2 = password === confirmPassword
         const condition3 = $.trim(password).length > 0;
         console.log(condition1, condition2, condition3);
 
         if (condition1 && condition2 && condition3)
-            $("#submitBtn").removeClass('d-none');
+            $("#submitBtn").prop('disabled', false)
         else
-            $("#submitBtn").addClass('d-none');
+            $("#submitBtn").prop('disabled', true)
     }
 
 

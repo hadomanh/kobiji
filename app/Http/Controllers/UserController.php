@@ -119,7 +119,7 @@ class UserController extends Controller
         if (Hash::check($request->oldPassword, $user->password)) {
             $user->password = bcrypt($request->password);
             $user->save();
-            return redirect()->route('users.index', $user->role);
+            return redirect()->route('home');
         }
 
         return Redirect::back()->withErrors([

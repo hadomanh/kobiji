@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         $user->email = 'manager@gmail.com';
         $user->name = 'Manager';
         $user->role = 'manager';
-        $user->password = bcrypt('123456');
+        $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
 
         $user->save();
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         $user->email = 'admin@gmail.com';
         $user->name = 'Admin';
         $user->role = 'admin';
-        $user->password = bcrypt('123456');
+        $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
 
         $user->save();
@@ -36,6 +36,7 @@ class UserSeeder extends Seeder
         $subject->code = 'IT1102';
         $subject->description = 'Math';
         $subject->teacher = 'Mr. Quang';
+        $subject->target = 'Naiteisha';
         $subject->session = 15;
         $subject->from = now();
         $subject->to = now()->addDays(10);
@@ -49,7 +50,7 @@ class UserSeeder extends Seeder
             $user->email = 'student' . $i . '@gmail.com';
             $user->name = 'Student ' . $i;
             $user->role = 'student';
-            $user->password = bcrypt('123456');
+            $user->password = bcrypt('12345678');
             $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
 
             $user->save();
@@ -66,6 +67,7 @@ class UserSeeder extends Seeder
             $subject->name = 'Subject ' . $i;
             $subject->code = 'IT120' . $i;
             $subject->teacher = 'Mr. Quang';
+            $subject->target = 'Naiteisha';
             $subject->session = 15;
             $subject->description = 'Math';
             $subject->from = now();

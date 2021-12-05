@@ -48,6 +48,7 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->code = $request->code;
         $subject->teacher = $request->teacher;
+        $subject->target = $request->teacher;
         $subject->session = $request->session;
         $subject->to = $request->to;
         $subject->from = $request->from;
@@ -93,6 +94,7 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->code = $request->code;
         $subject->teacher = $request->teacher;
+        $subject->target = $request->target;
         $subject->session = $request->session;
         $subject->to = $request->to;
         $subject->from = $request->from;

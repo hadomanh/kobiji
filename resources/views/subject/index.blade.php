@@ -36,6 +36,7 @@
             <th>{{ __('説明') }}</th>
             <th class="text-center">{{ __('セッション数') }}</th>
             <th>{{ __('教師') }}</th>
+            <th>{{ __('対象') }}</th>
             <th class="text-center">{{ __('Enrollment') }}</th>
             <th>{{ __('始まる') }}</th>
             <th>{{ __('完了') }}</th>
@@ -51,6 +52,7 @@
                     <td>{{ $subject->description }}</td>
                     <td class="text-center">{{ $subject->session }}</td>
                     <td>{{ $subject->teacher }}</td>
+                    <td>{{ $subject->target }}</td>
                     <td class="text-center">{{ $subject->students->count() }} / {{ $subject->limit }}</td>
                     <td>{{ date('d M, Y', strtotime($subject->from)) }}</td>
                     <td>{{ date('d M, Y', strtotime($subject->to)) }}</td>
