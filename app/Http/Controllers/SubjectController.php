@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SubjectController extends Controller
 {
@@ -131,6 +132,13 @@ class SubjectController extends Controller
 
     public function registrationSubmit(Request $request, Subject $subject) {
         $students = $request->students;
+
+        if (count($students) > $subject->limit) {
+            return Redirect::back()->withErrors([
+                'error' => 'Over quota limit'
+            ]);
+        }
+
         $subject->students()->sync($students);
         return redirect()->route('subjects.registration');
     }

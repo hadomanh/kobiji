@@ -33,6 +33,10 @@
 
         </div>
 
+        @if($errors->any())
+            <div class="text-danger text-center">Over quota limit</b></div>
+        @endif
+
         <div class="row">
             <div class="col-3"></div>
             <button class="btn btn-outline-warning col-6" type="submit">{{ __('Update') }}</button>

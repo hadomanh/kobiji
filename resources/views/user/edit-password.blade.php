@@ -45,7 +45,6 @@
             </div>
 
             @if($errors->any())
-            
                 <div class="text-danger text-center">Invalid password</b></div>
             @endif
     
