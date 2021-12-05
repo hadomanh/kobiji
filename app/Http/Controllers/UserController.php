@@ -106,7 +106,7 @@ class UserController extends Controller
         }
         $user->name = $request->name;
         $user->save();
-        return redirect()->route('users.index', $user->role);
+        return redirect()->route('home', $user->role);
     }
 
     public function editPassword(User $user)
