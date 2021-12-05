@@ -31,15 +31,15 @@
         <thead>
           <tr>
             <th style="width: 10px">#</th>
-            <th>{{ __('Name') }}</th>
-            <th>{{ __('Code') }}</th>
+            <th>{{ __('コース名') }}</th>
+            <th>{{ __('コード') }}</th>
             <th>{{ __('説明') }}</th>
             <th class="text-center">{{ __('セッション数') }}</th>
             <th>{{ __('教師') }}</th>
             <th>{{ __('対象') }}</th>
-            <th class="text-center">{{ __('Enrollment') }}</th>
-            <th>{{ __('始まる') }}</th>
-            <th>{{ __('完了') }}</th>
+            <th class="text-center">{{ __('学生数') }}</th>
+            <th>{{ __('開始日') }}</th>
+            <th>{{ __('終了日') }}</th>
             <th>{{ __('アクション') }}</th>
           </tr>
         </thead>
