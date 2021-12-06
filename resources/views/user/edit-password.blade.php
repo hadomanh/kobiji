@@ -9,7 +9,7 @@
 <div class="container">
     <div class="card card-warning">
         <div class="card-header">
-          <h3 class="card-title">Create User</h3>
+          <h3 class="card-title">ユーザーの追加</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -21,7 +21,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Old Password') }}:</label>
+                    <label>{{ __('以前パスワード') }}:</label>
                     <input type="password" name="oldPassword" class="form-control" placeholder="Password..." required>
                   </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('New Password') }}:</label>
+                    <label>{{ __('新しいパスワード') }}:</label>
                     <input type="password" id="password-first" name="password" class="form-control" placeholder="Password..." required>
                   </div>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Confirm Password') }}:</label>
+                    <label>{{ __('新しいパスワード（確認）') }}:</label>
                     <input type="password" id="password-second" class="form-control" placeholder="Confirm Password..." required>
                   </div>
                 </div>
@@ -50,12 +50,12 @@
     
             <div class="row">
                 <div class="col-3"></div>
-                <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('Submit') }}</button>
+                <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('登録') }}</button>
             </div>
             <br>
             <div class="row">
                 <div class="col-3"></div>
-                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('Cancel') }}</a>
+                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('キャンセル') }}</a>
             </div>
             <br>
     

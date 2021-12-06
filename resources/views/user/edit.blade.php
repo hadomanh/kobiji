@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card card-warning">
         <div class="card-header">
-          <h3 class="card-title">Create User</h3>
+          <h3 class="card-title">ユーザーの編集</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -15,14 +15,14 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Name') }}:</label>
+                    <label>{{ __('名前') }}:</label>
                     <input type="text" name="name" class="form-control" value="{{ $user->name }}" placeholder="Name..." required>
                   </div>
                 </div>
 
                 <div class="offset-sm-4 col-sm-4">
                     <div class="form-group">
-                        <label for="uploadWrapper">Avatar:</label>
+                        <label for="uploadWrapper">アバタ:</label>
                         <div id="uploadWrapper">
                             <label class="upload-trigger" for="js--upload">
                                 <div class="uploader">
@@ -42,12 +42,12 @@
     
             <div class="row">
                 <div class="col-3"></div>
-                <button class="btn btn-primary col-6" id="submitBtn" type="submit">{{ __('Submit') }}</button>
+                <button class="btn btn-primary col-6" id="submitBtn" type="submit">{{ __('登録') }}</button>
             </div>
             <br>
             <div class="row">
                 <div class="col-3"></div>
-                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('Cancel') }}</a>
+                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('キャンセル') }}</a>
             </div>
             <br>
     
