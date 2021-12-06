@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>KOBIJI Admin</title>
+  <title>KOBIJI 管理者</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -47,7 +47,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('home') }}" class="nav-link">Home</a>
+        <a href="{{ route('home') }}" class="nav-link">ホームページ</a>
       </li>
       @if (Auth::user()->role == 'student')
         <li class="nav-item d-none d-sm-inline-block">
@@ -55,13 +55,13 @@
         </li>
       @endif
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('users.edit', Auth::user()->id) }}" class="nav-link">Update information</a>
+        <a href="{{ route('users.edit', Auth::user()->id) }}" class="nav-link">プロフィル編集</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('users.edit.password', Auth::user()->id) }}" class="nav-link">Change password</a>
+        <a href="{{ route('users.edit.password', Auth::user()->id) }}" class="nav-link">パスワード変更</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+        <a href="{{ route('logout') }}" class="nav-link">ログアウト</a>
       </li>
     </ul>
 
@@ -73,7 +73,7 @@
     <!-- Brand Logo -->
     <a href="javascript:void(0)" class="brand-link">
       <img src="{{ asset('bower_components/admin-lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">KOBIJI Admin</span>
+      <span class="brand-text font-weight-light">KOBIJI 管理者</span>
     </a>
 
     <!-- Sidebar -->
@@ -103,7 +103,7 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-user"></i>
                 <p>
-                  User
+                  ユーザー
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -111,25 +111,25 @@
                 <li class="nav-item">
                   <a href="{{ route('users.index', ['role' => 'student']) }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Student</p>
+                    <p>学生</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('users.index', 'admin') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Admin</p>
+                    <p>管理者</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('users.index', 'manager') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Manager</p>
+                    <p>マネジャー</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('users.create') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Create</p>
+                    <p>追加</p>
                   </a>
                 </li>
               </ul>
@@ -140,7 +140,7 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-book"></i>
                 <p>
-                  Subjects
+                  コース
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -148,25 +148,25 @@
                 <li class="nav-item">
                   <a href="{{ route('subjects.create') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Create</p>
+                    <p>追加</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('subjects.index') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Manage</p>
+                    <p>管理</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('subjects.registration') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add Students</p>
+                    <p>学生の追加</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('subjects.grading') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Grading</p>
+                    <p>グレーディング</p>
                   </a>
                 </li>
               </ul>
