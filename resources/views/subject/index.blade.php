@@ -23,7 +23,7 @@
 
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Subject</h3>
+      <h3 class="card-title">コース</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -58,14 +58,14 @@
                     <td>{{ date('d M, Y', strtotime($subject->to)) }}</td>
                     <td>
                       <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-outline-primary">
-                          <i class="fas fa-eye"></i> {{ __('View') }}
+                          <i class="fas fa-eye"></i> {{ __('閲覧') }}
                       </a>
                       @if (Auth::user()->role == 'admin')
                         <a class="btn btn-outline-warning" href="{{ route('subjects.edit', $subject->id) }}">
-                          <i class="fas fa-edit"></i> {{ __('Edit') }}
+                          <i class="fas fa-edit"></i> {{ __('編集') }}
                         </a>
                         <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.subjects.delete', $subject->id) }}" data-toggle="modal" data-target="#modal-default">
-                          <i class="fas fa-trash"></i> {{ __('Delete') }}
+                          <i class="fas fa-trash"></i> {{ __('削除') }}
                         </div>
                       @endif
                     </td>

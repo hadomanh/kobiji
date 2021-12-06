@@ -23,7 +23,7 @@
 
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Subject</h3>
+      <h3 class="card-title">コース</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -31,9 +31,9 @@
         <thead>
           <tr>
             <th style="width: 10px">#</th>
-            <th>{{ __('Name') }}</th>
-            <th>{{ __('Email') }}</th>
-            <th>{{ __('Status') }}</th>
+            <th>{{ __('名前') }}</th>
+            <th>{{ __('メール') }}</th>
+            <th>{{ __('ステータス') }}</th>
             <th></th>
           </tr>
         </thead>
@@ -44,18 +44,18 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     @if ($user->active)
-                        <td class="text-success">{{ __('Activate') }}</td>
+                        <td class="text-success">{{ __('アクティブ') }}</td>
                     @else
-                        <td class="text-danger">{{ __('Deactivate') }}</td>
+                        <td class="text-danger">{{ __('非アクティブ') }}</td>
                     @endif
                     <td>
                       <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary">
-                          <i class="fas fa-eye"></i> {{ __('View') }}
+                          <i class="fas fa-eye"></i> {{ __('閲覧') }}
                       </a>
                       @if ($user->active)
-                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-danger">Deactive</a>
+                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-danger">非アクティブ</a>
                       @else
-                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-success">Active</a>
+                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-success">アクティブ</a>
                       @endif
                     </td>
                 </tr>
