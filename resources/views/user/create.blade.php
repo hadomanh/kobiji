@@ -9,7 +9,7 @@
 <div class="container">
     <div class="card card-warning">
         <div class="card-header">
-          <h3 class="card-title">Create User</h3>
+          <h3 class="card-title">ユーザーの追加</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -19,7 +19,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Name') }}:</label>
+                    <label>{{ __('名前') }}:</label>
                     <input type="text" name="name" class="form-control" placeholder="Name..." required>
                   </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Email') }}:</label>
+                    <label>{{ __('メール') }}:</label>
                     <input type="email" name="email" class="form-control" placeholder="Email..." required>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Password') }}:</label>
+                    <label>{{ __('パスワード') }}:</label>
                     <input type="password" id="password-first" name="password" class="form-control" placeholder="Password..." required>
                   </div>
                 </div>
@@ -43,18 +43,18 @@
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>{{ __('Confirm Password') }}:</label>
+                    <label>{{ __('パスワード（確認）') }}:</label>
                     <input type="password" id="password-second" class="form-control" placeholder="Confirm Password..." required>
                   </div>
                 </div>
 
                 <div class="offset-sm-4 col-sm-4">
                     <div class="form-group">
-                        <label>Role</label>
+                        <label>役割</label>
                         <select class="form-control select2 select2-danger" name="role" data-dropdown-css-class="select2-danger" style="width: 100%;">
-                            <option selected="selected" value="student">Student</option>
-                            <option value="admin">Admin</option>
-                            <option value="manager">Manager</option>
+                            <option selected="selected" value="student">学生</option>
+                            <option value="admin">管理者</option>
+                            <option value="manager">マネジャー</option>
                         </select>
                     </div>
                     <!-- /.form-group -->
@@ -69,12 +69,12 @@
     
             <div class="row">
                 <div class="col-3"></div>
-                <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('Submit') }}</button>
+                <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('登録') }}</button>
             </div>
             <br>
             <div class="row">
                 <div class="col-3"></div>
-                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('Cancel') }}</a>
+                <a class="btn btn-outline-secondary col-6" href="{{ route('users.index', 'student') }}">{{ __('キャンセル') }}</a>
             </div>
             <br>
     

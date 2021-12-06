@@ -25,14 +25,14 @@
               <li class="list-group-item">
                 <b>Status</b>
                 @if ($user->active)
-                    <a class="float-right text-success">{{ __('Activate') }}</a>
+                    <a class="float-right text-success">{{ __('アクティブ') }}</a>
                 @else
-                    <a class="float-right text-danger">{{ __('Deactivate') }}</a>
+                    <a class="float-right text-danger">{{ __('非アクティブ') }}</a>
                 @endif
               </li>
             </ul>
 
-            <a href="{{ route('home')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('Back') }}</b></a>
+            <a href="{{ route('home')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('戻る') }}</b></a>
           </div>
           <!-- /.card-body -->
         </div>
@@ -45,7 +45,7 @@
         <div class="card">
           <div class="card-header p-2">
             <ul class="nav nav-pills">
-              <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">{{ __('Subjects') }}</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">{{ __('コース一覧') }}</a></li>
               {{-- <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
               <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li> --}}
             </ul>
@@ -78,12 +78,12 @@
                                                   <td>{{ $loop->index + 1 }}</td>
                                                   <td>{{ $subject->name }}</td>
                                                   <td>{{ $subject->code }}</td>
-                                                  <td class="text-center">{{ $subject->pivot->midterm ?? __('Not updated yet') }}</td>
-                                                  <td class="text-center">{{ $subject->pivot->endterm ?? __('Not updated yet') }}</td>
+                                                  <td class="text-center">{{ $subject->pivot->midterm ?? __('なし') }}</td>
+                                                  <td class="text-center">{{ $subject->pivot->endterm ?? __('なし') }}</td>
                                                   @if ($subject->pivot->midterm && $subject->pivot->endterm)
                                                     <td class="text-center">{{ $subject->pivot->midterm * $subject->midterm + $subject->pivot->endterm * $subject->endterm }}</td>
                                                   @else
-                                                    <td class="text-center">{{ __('Not updated yet') }}</td>
+                                                    <td class="text-center">{{ __('なし') }}</td>
                                                   @endif
                                                   
                                               </tr>
@@ -93,7 +93,7 @@
                                     </table>
                                   </div>
                                 @else
-                                    <p class="text-center">Nothing to display</p>
+                                    <p class="text-center">データがありません</p>
                                 @endif
                                 <!-- /.card-body -->
                               </div>

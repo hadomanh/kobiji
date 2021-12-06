@@ -3,7 +3,7 @@
 @section('content')
 <div class="card card-warning">
     <div class="card-header">
-      <h3 class="card-title">Create Subject</h3>
+      <h3 class="card-title">コースの追加</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -13,7 +13,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Name') }}:</label>
+                <label>{{ __('コース名') }}:</label>
                 <input type="text" name="name" class="form-control" placeholder="Name..." required>
               </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Code') }}:</label>
+                <label>{{ __('コード') }}:</label>
                 <input type="text" name="code" class="form-control" placeholder="Code..." required>
               </div>
               
@@ -30,7 +30,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Number of sessions') }}:</label>
+                <label>{{ __('学期数') }}:</label>
                 <input type="text" name="session" class="form-control" placeholder="'Number of sessions..." required>
               </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Teacher') }}:</label>
+                <label>{{ __('教師') }}:</label>
                 <input type="text" name="teacher" class="form-control" placeholder="Teacher..." required>
               </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Target') }}:</label>
+                <label>{{ __('目標') }}:</label>
                 <input type="text" name="target" class="form-control" placeholder="Target..." required>
               </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Description') }}:</label>
+                <label>{{ __('詳細') }}:</label>
                 <input type="text" name="description" class="form-control" placeholder="Description..." required>
               </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Limit') }}:</label>
+                <label>{{ __('制限') }}:</label>
                 <input type="number" name="limit" class="form-control" placeholder="Limit..." required>
               </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('From') }}:</label>
+                <label>{{ __('開始日') }}:</label>
                 <input type="date" name="from" class="form-control" placeholder="From..." required>
               </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('To') }}:</label>
+                <label>{{ __('終了日') }}:</label>
                 <input type="date" name="to" class="form-control" placeholder="To..." required>
               </div>
             </div>
@@ -89,12 +89,12 @@
 
         <div class="row">
             <div class="col-3"></div>
-            <button class="btn btn-primary col-6" type="submit">{{ __('Submit') }}</button>
+            <button class="btn btn-primary col-6" type="submit">{{ __('登録') }}</button>
         </div>
         <br>
         <div class="row">
             <div class="col-3"></div>
-            <a class="btn btn-outline-secondary col-6" href="{{ route('subjects.index') }}">{{ __('Cancel') }}</a>
+            <a class="btn btn-outline-secondary col-6" href="{{ route('subjects.index') }}">{{ __('キャンセル') }}</a>
         </div>
         <br>
 

@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Subject</h3>
+      <h3 class="card-title">コース</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -12,9 +12,9 @@
         <thead>
           <tr>
             <th style="width: 10px">#</th>
-            <th>{{ __('Name') }}</th>
-            <th>{{ __('Code') }}</th>
-            <th>{{ __('Enrollment') }}</th>
+            <th>{{ __('コース名') }}</th>
+            <th>{{ __('コード') }}</th>
+            <th>{{ __('出席') }}</th>
             <th></th>
           </tr>
         </thead>
@@ -27,7 +27,7 @@
                     <td>{{ $subject->students->count() }} / {{ $subject->limit }}</td>
                     <td>
                         <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-outline-primary">
-                            <i class="fas fa-eye"></i> {{ __('Add Grade') }}
+                            <i class="fas fa-eye"></i> {{ __('追加') }}
                         </a>
                     </td>
                 </tr>
