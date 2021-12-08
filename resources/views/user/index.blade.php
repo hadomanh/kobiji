@@ -34,7 +34,7 @@
             <th>{{ __('名前') }}</th>
             <th>{{ __('メール') }}</th>
             <th>{{ __('ステータス') }}</th>
-            <th></th>
+            <th>{{ __('アクション') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -52,10 +52,12 @@
                       <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary">
                           <i class="fas fa-eye"></i> {{ __('閲覧') }}
                       </a>
-                      @if ($user->active)
-                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-danger">非アクティブ</a>
-                      @else
-                        <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-success">アクティブ</a>
+                      @if ($user->id !== Auth::user()->id)
+                          @if ($user->active)
+                            <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-danger">非アクティブ</a>
+                          @else
+                            <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-success">アクティブ</a>
+                          @endif
                       @endif
                     </td>
                 </tr>

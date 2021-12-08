@@ -80,7 +80,7 @@
                                                   <td>{{ $subject->code }}</td>
                                                   <td class="text-center">{{ $subject->pivot->midterm ?? __('なし') }}</td>
                                                   <td class="text-center">{{ $subject->pivot->endterm ?? __('なし') }}</td>
-                                                  @if ($subject->pivot->midterm && $subject->pivot->endterm)
+                                                  @if ($subject->pivot->midterm > -1 && $subject->pivot->endterm > -1)
                                                     <td class="text-center">{{ $subject->pivot->midterm * $subject->midterm + $subject->pivot->endterm * $subject->endterm }}</td>
                                                   @else
                                                     <td class="text-center">{{ __('なし') }}</td>

@@ -53,8 +53,10 @@
                         <label>役割</label>
                         <select class="form-control select2 select2-danger" name="role" data-dropdown-css-class="select2-danger" style="width: 100%;">
                             <option selected="selected" value="student">学生</option>
-                            <option value="admin">管理者</option>
-                            <option value="manager">マネジャー</option>
+                            @if (Auth::user()->role == 'admin')
+                              <option value="admin">管理者</option>
+                              <option value="manager">マネジャー</option>
+                            @endif
                         </select>
                     </div>
                     <!-- /.form-group -->

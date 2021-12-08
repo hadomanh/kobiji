@@ -30,6 +30,7 @@
                                           <th>{{ __('Email') }}</th>
                                           <th>{{ __('Midterm') }}</th>
                                           <th>{{ __('Endterm') }}</th>
+                                          <th>{{ __('Attendance') }}</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -47,6 +48,11 @@
                                                     <td>
                                                         <div class="form-group">
                                                             <input type="number" class="form-control" value="{{ $student->pivot->endterm }}" name="{{"students[" . $loop->index . "][endterm]"}}" >
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="{{ $student->pivot->attendance }}" name="{{"students[" . $loop->index . "][attendance]"}}" >
                                                         </div>
                                                     </td>
                                               </tr>

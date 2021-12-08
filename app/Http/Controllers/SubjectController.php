@@ -160,6 +160,7 @@ class SubjectController extends Controller
             $students[$student['id']] = [
                 'midterm' => $student['midterm'],
                 'endterm' => $student['endterm'],
+                'attendance' => $student['attendance'],
             ];
         }
         $subject->students()->sync($students);

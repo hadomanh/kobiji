@@ -58,6 +58,7 @@ class UserSeeder extends Seeder
             $subject->students()->attach($user->id, [
                 'midterm' => mt_rand(1, 10),
                 'endterm' => mt_rand(1, 10),
+                'attendance' => mt_rand(1, 10),
             ]);
         }
 

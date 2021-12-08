@@ -19,6 +19,7 @@ class CreateStudentSubjectTable extends Migration
             $table->primary(['student_id', 'subject_id']);
             $table->double('midterm')->default(-1);
             $table->double('endterm')->default(-1);
+            $table->double('attendance')->default(-1);
             $table->timestamps();
         });
     }

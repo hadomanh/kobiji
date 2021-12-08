@@ -26,9 +26,12 @@ class UserController extends Controller
      */
     public function index($role)
     {
+        if ($role === 'admin' && Auth::user()->role === 'manager') {
+            return redirect()->route('home');
+        }
         $users = $this->user->where([
             ['role', '=', $role],
-            ['id', '<>', Auth::user()->id]
+            // ['id', '<>', Auth::user()->id]
         ])->orderBy('updated_at', 'desc')->paginate($this->perPage);
         return view('user.index', compact('users'));
     }

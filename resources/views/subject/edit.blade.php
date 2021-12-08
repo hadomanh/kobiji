@@ -30,15 +30,15 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('学期数') }}:</label>
-                <input type="text" name="session" class="form-control" placeholder="'Number of sessions..." value="{{ $subject->session }}" required>
+                <label>{{ __('レッスン数') }}:</label>
+                <input type="text" name="session" class="form-control" placeholder="Number of sessions..." value="{{ $subject->session }}" required>
               </div>
             </div>
 
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('教師') }}:</label>
+                <label>{{ __('教師名') }}:</label>
                 <input type="text" name="teacher" class="form-control" placeholder="Teacher..." value="{{ $subject->teacher }}" required>
               </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('目標') }}:</label>
+                <label>{{ __('対象') }}:</label>
                 <input type="text" name="target" class="form-control" placeholder="Target..." value="{{ $subject->target }}" required>
               </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('制限') }}:</label>
+                <label>{{ __('クォータ') }}:</label>
                 <input type="number" name="limit" class="form-control" placeholder="Limit..." value="{{ $subject->limit }}" required>
               </div>
             </div>

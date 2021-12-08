@@ -114,12 +114,14 @@
                     <p>学生</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="{{ route('users.index', 'admin') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>管理者</p>
-                  </a>
-                </li>
+                @if (Auth::user()->role === 'admin')
+                  <li class="nav-item">
+                    <a href="{{ route('users.index', 'admin') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>管理者</p>
+                    </a>
+                  </li>
+                @endif
                 <li class="nav-item">
                   <a href="{{ route('users.index', 'manager') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>

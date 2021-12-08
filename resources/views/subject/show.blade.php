@@ -78,8 +78,10 @@
                                     <th>#</th>
                                     <th>{{ __('名前') }}</th>
                                     <th>{{ __('メール') }}</th>
-                                    <th>{{ __('中間試験') }}</th>
-                                    <th>{{ __('期末試験') }}</th>
+                                    <th class="text-center">{{ __('中間試験') }}</th>
+                                    <th class="text-center">{{ __('期末試験') }}</th>
+                                    <th class="text-center">{{ __('出席') }}</th>
+                                    <th class="text-center">{{ __('最終業績') }}</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -88,8 +90,14 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->email }}</td>
-                                            <td>{{ $student->pivot->midterm >= 0 ? $student->pivot->midterm : __('なし') }}</td>
-                                            <td>{{ $student->pivot->endterm >= 0 ? $student->pivot->endterm : __('なし') }}</td>
+                                            <td class="text-center">{{ $student->pivot->midterm >= 0 ? $student->pivot->midterm : __('なし') }}</td>
+                                            <td class="text-center">{{ $student->pivot->endterm >= 0 ? $student->pivot->endterm : __('なし') }}</td>
+                                            <td class="text-center">{{ $student->pivot->attendance >= 0 ? $student->pivot->attendance : __('なし') }}</td>
+                                            @if ($student->pivot->midterm >= 0 && $student->pivot->endterm >= 0)
+                                              <td class="text-center">{{ $student->pivot->midterm * $subject->midterm + $student->pivot->endterm * $subject->endterm }}</td>
+                                            @else
+                                              <td class="text-center">{{ __('なし') }}</td>
+                                            @endif
                                         </tr>
                                         
                                     @endforeach
