@@ -20,7 +20,7 @@
 
 - Run command
 ```sh
-$ compser update
+$ composer update
 $ composer install
 $ bower install
 $ yarn install
