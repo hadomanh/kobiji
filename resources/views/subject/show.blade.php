@@ -81,7 +81,7 @@
                                     <th class="text-center">{{ __('中間試験') }}</th>
                                     <th class="text-center">{{ __('期末試験') }}</th>
                                     <th class="text-center">{{ __('出席') }}</th>
-                                    <th class="text-center">{{ __('最終業績') }}</th>
+                                    <th class="text-center">{{ __('最終成績') }}</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -122,7 +122,7 @@
 
   <div class="pl-5 pb-3">
     <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
-    <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">コースの追加</a>
+    <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">グレーディングの追加</a>
   </div>
   <!-- /.card-body -->
 </div>
