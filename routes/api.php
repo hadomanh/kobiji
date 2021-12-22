@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('subjects')->middleware(['admin.only'])->group(function () {
+Route::prefix('subjects')->group(function () {
     Route::delete('/{id}', [SubjectController::class, 'destroy'])->name('api.subjects.delete');
+});
+
+Route::prefix('lessons')->group(function () {
+    Route::delete('/{lesson}', [LessonController::class, 'destroy'])->name('api.lessons.delete');
 });

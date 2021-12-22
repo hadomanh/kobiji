@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Lesson;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -46,6 +47,17 @@ class UserSeeder extends Seeder
         $subject->refresh();
 
         for ($i = 0; $i < 10; $i++) {
+            $lesson = new Lesson();
+            $lesson->title = 'Lesson ' . $i;
+            $lesson->time = date('Y-m-d H:i');;
+            $lesson->subject()->associate($subject);
+            $lesson->save();
+            $lesson->refresh();
+        }
+
+
+
+        for ($i = 0; $i < 10; $i++) {
             $user = new User();
             $user->email = 'student' . $i . '@gmail.com';
             $user->name = 'Student ' . $i;
@@ -60,6 +72,12 @@ class UserSeeder extends Seeder
                 'endterm' => mt_rand(1, 10),
                 'attendance' => mt_rand(1, 10),
             ]);
+
+            foreach ($subject->lessons as $lesson) {
+                $lesson->students()->attach($user->id, [
+                    'status' => 'PRESENT',
+                ]);
+            }
         }
 
         // seed 10 subjects

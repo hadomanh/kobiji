@@ -1,6 +1,27 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ __('Confirm delete') }}?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('Cancel') }}</button>
+        <button id="deleteConfirm" type="button" class="btn btn-danger">{{ __('Delete permanently') }}</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <!-- Default box -->
 <div class="card">
   <div class="card-header">
@@ -111,6 +132,47 @@
                         </div>
                         <!-- /.card -->
                       </div>
+
+                      <div class="col-12">
+                        <div class="card">
+                          
+                          @if ($subject->lessons->count() > 0)
+                          <div class="card-body table-responsive p-0">
+                              <table class="table table-hover text-nowrap">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>{{ __('Title') }}</th>
+                                    <th>{{ __('Time') }}</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($subject->lessons as $lesson)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            <td>{{ $lesson->title }}</td>
+                                            <td>{{ $lesson->time }}</td>
+                                            <td>
+                                              <a href="{{ route('lessons.attendance.detail', $lesson->id) }}" class="btn btn-outline-primary">View</a>
+                                              <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.lessons.delete', $lesson->id) }}" data-toggle="modal" data-target="#modal-default">
+                                                {{ __('Delete') }}
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        
+                                    @endforeach
+                                </tbody>
+                              </table>
+                            </div>
+                          @else
+                              <p class="text-center">データがありません</p>
+                          @endif
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
+
                     </div>
                     <!-- /.row -->
               </div>
@@ -123,6 +185,7 @@
   <div class="pl-5 pb-3">
     <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
     <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">コースの追加</a>
+    <a href="{{ route('lessons.create', $subject->id) }}" class="btn btn-warning">Add lesson</a>
   </div>
   <!-- /.card-body -->
 </div>

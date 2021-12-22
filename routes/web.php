@@ -38,6 +38,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/subjects/registration/{subject}', 'SubjectController@registrationDetail')->name('subjects.registration.detail');
         Route::put('/subjects/registration/{subject}', 'SubjectController@registrationSubmit')->name('subjects.registration.submit');
 
+        Route::get('/subjects/lessons/attendance/{lesson}', 'LessonController@attendance')->name('lessons.attendance.detail');
+        Route::put('/subjects/lessons/attendance/{lesson}', 'LessonController@attendaceSubmit')->name('lessons.attendance.submit');
+
+        Route::get('/subjects/lessons/create/{subject}', 'LessonController@create')->name('lessons.create');
+        Route::post('/subjects/lessons/{subject}', 'LessonController@store')->name('lessons.store');
+
         Route::get('/subjects', 'SubjectController@index')->name('subjects.index');
         Route::get('subjects/create', 'SubjectController@create')->name('subjects.create');
         Route::post('subjects', 'SubjectController@store')->name('subjects.store');
