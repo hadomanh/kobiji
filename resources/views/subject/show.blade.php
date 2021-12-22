@@ -102,7 +102,7 @@
                                     <th class="text-center">{{ __('中間試験') }}</th>
                                     <th class="text-center">{{ __('期末試験') }}</th>
                                     <th class="text-center">{{ __('出席') }}</th>
-                                    <th class="text-center">{{ __('最終業績') }}</th>
+                                    <th class="text-center">{{ __('最終成績') }}</th>
                                   </tr>
                                 </thead>
                                 <tbody>

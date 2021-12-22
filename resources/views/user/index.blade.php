@@ -52,13 +52,13 @@
                       <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary">
                           <i class="fas fa-eye"></i> {{ __('閲覧') }}
                       </a>
-                      @if ($user->id !== Auth::user()->id)
+                      {{-- @if ($user->id !== Auth::user()->id)
                           @if ($user->active)
                             <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-danger">非アクティブ</a>
                           @else
                             <a href="{{ route('users.toggle', $user->id) }}" class="btn btn-outline-success">アクティブ</a>
                           @endif
-                      @endif
+                      @endif --}}
                     </td>
                 </tr>
             @endforeach
