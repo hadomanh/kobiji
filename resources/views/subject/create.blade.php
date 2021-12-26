@@ -133,7 +133,7 @@
         skill += '<div class="col-sm-4">' +
           '<div class="form-group">' +
           '<label>{{ __('Ratio') }}:</label>' +
-          '<input type="number" name="ratio[]" class="form-control" placeholder="Ratio..." required>' +
+          '<input type="number" name="ratio[]" step="any" class="form-control" placeholder="Ratio..." required>' +
           '</div>' +
           '</div>';
         skill += '</div>';

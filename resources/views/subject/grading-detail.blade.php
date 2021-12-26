@@ -68,7 +68,7 @@
                                                       @foreach ($skill->students as $skill_student)
                                                         @if ($skill_student->id == $student->id)
                                                         <td>
-                                                          <input type="number" class="form-control" value="{{ $skill_student->pivot->grade }}" name="{{"students[" . $loop->parent->parent->index . "][skill][" . $skill->id . "]"}}" >
+                                                          <input type="number" step="any" class="form-control" value="{{ $skill_student->pivot->grade }}" name="{{"students[" . $loop->parent->parent->index . "][skill][" . $skill->id . "]"}}" >
                                                         </td>
                                                           @endif
                                                       @endforeach
