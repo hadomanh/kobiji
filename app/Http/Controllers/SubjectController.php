@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Http\Request;
@@ -57,6 +58,18 @@ class SubjectController extends Controller
         $subject->limit = $request->limit;
         
         $subject->save();
+        $subject->refresh();
+
+
+        for ($i=0; $i < count($request->skill); $i++) { 
+            $skill = new Skill();
+            $skill->name = $request->skill[$i];
+            $skill->ratio = $request->ratio[$i];
+            $skill->subject()->associate($subject);
+
+            $skill->save();
+            $skill->refresh();
+        }
 
         return redirect()->route('subjects.index');
     }
@@ -103,6 +116,16 @@ class SubjectController extends Controller
         $subject->limit = $request->limit;
         $subject->midterm = $request->midterm;
         $subject->endterm = $request->endterm;
+
+        foreach ($request->skills as $skill) {
+            foreach ($subject->skills as $subjectSkill) {
+                if ($subjectSkill->id == $skill['id']) {
+                    $subjectSkill->name = $skill['name'];
+                    $subjectSkill->ratio = $skill['ratio'];
+                    $subjectSkill->save();
+                }
+            }
+        }
         
         $subject->save();
 
@@ -140,6 +163,10 @@ class SubjectController extends Controller
         }
 
         $subject->students()->sync($students);
+        
+        foreach ($subject->skills()->get() as $skill) {
+            $skill->students()->sync($students);
+        }
         return redirect()->route('subjects.registration');
     }
 
@@ -164,6 +191,17 @@ class SubjectController extends Controller
             ];
         }
         $subject->students()->sync($students);
+
+        foreach ($subject->skills()->get() as $skill) {
+            $students = array();
+            foreach ($request->students as $student) {
+                $students[$student['id']] = [
+                    'grade' => $student['skill'][$skill->id],
+                ];
+            }
+
+            $skill->students()->sync($students);
+        }
         
         return redirect()->route('subjects.grading');
     }

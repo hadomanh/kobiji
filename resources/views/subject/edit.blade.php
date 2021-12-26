@@ -83,7 +83,10 @@
               </div>
             </div>
 
-            <div class="col-sm-4">
+            <input type="hidden" name="midterm" class="form-control" placeholder="Midterm..." value="{{ $subject->midterm }}" required>
+            <input type="hidden" name="endterm" class="form-control" placeholder="Endterm..." value="{{ $subject->endterm }}" required>
+
+            {{-- <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('中間割合') }}:</label>
@@ -97,6 +100,30 @@
                 <label>{{ __('期末割合') }}:</label>
                 <input type="text" name="endterm" class="form-control" placeholder="Endterm..." value="{{ $subject->endterm }}" required>
               </div>
+            </div> --}}
+
+            <div class="col-sm-12">
+              @foreach ($subject->skills as $skill)
+                <div class="row">
+
+                  <input type="hidden" name="{{ "skills[" . $loop->index . "][id]"}}" value="{{ $skill->id }}" required>
+
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                    <label>{{ __('Skill') }}:</label>
+                    <input type="text" name="{{ "skills[" . $loop->index . "][name]"}}" class="form-control" placeholder="Skill..." value="{{ $skill->name }}" required>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                    <label>{{ __('Ratio') }}:</label>
+                    <input type="number" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
+                    </div>
+                  </div>
+
+                </div>
+              @endforeach
             </div>
 
         </div>

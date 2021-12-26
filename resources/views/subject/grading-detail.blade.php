@@ -28,19 +28,27 @@
                                           <th>#</th>
                                           <th>{{ __('Name') }}</th>
                                           <th>{{ __('Email') }}</th>
-                                          <th>{{ __('Midterm') }}</th>
+                                          {{-- <th>{{ __('Midterm') }}</th>
                                           <th>{{ __('Endterm') }}</th>
-                                          <th>{{ __('Attendance') }}</th>
+                                          <th>{{ __('Attendance') }}</th> --}}
+                                          @foreach ($subject->skills as $skill)
+                                              <th>{{ $skill->name }}</th>
+                                          @endforeach
                                         </tr>
                                       </thead>
                                       <tbody>
                                           @foreach ($subject->students as $student)
                                               <tr>
                                                     <input type="hidden" class="form-control" value="{{ $student->id }}" name="{{"students[" . $loop->index . "][id]"}}" >
+                                                    <input type="hidden" class="form-control" value="{{ $student->pivot->midterm }}" name="{{"students[" . $loop->index . "][midterm]"}}" >
+                                                    <input type="hidden" class="form-control" value="{{ $student->pivot->endterm }}" name="{{"students[" . $loop->index . "][endterm]"}}" >
+                                                    <input type="hidden" class="form-control" value="{{ $student->pivot->attendance }}" name="{{"students[" . $loop->index . "][attendance]"}}" >
+                                                    
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $student->name }}</td>
                                                     <td>{{ $student->email }}</td>
-                                                    <td>
+
+                                                    {{-- <td>
                                                         <div class="form-group">
                                                             <input type="number" class="form-control" value="{{ $student->pivot->midterm }}" name="{{"students[" . $loop->index . "][midterm]"}}" >
                                                         </div>
@@ -54,7 +62,18 @@
                                                         <div class="form-group">
                                                             <input type="number" class="form-control" value="{{ $student->pivot->attendance }}" name="{{"students[" . $loop->index . "][attendance]"}}" >
                                                         </div>
-                                                    </td>
+                                                    </td> --}}
+                                                    
+                                                    @foreach ($subject->skills as $skill)
+                                                      @foreach ($skill->students as $skill_student)
+                                                        @if ($skill_student->id == $student->id)
+                                                        <td>
+                                                          <input type="number" class="form-control" value="{{ $skill_student->pivot->grade }}" name="{{"students[" . $loop->parent->parent->index . "][skill][" . $skill->id . "]"}}" >
+                                                        </td>
+                                                          @endif
+                                                      @endforeach
+                                                    @endforeach
+                                                    
                                               </tr>
                                               
                                           @endforeach

@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
         <div class="row">
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('コース名') }}</span>
@@ -48,7 +48,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('コード') }}</span>
@@ -57,7 +57,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('参加者の最大数') }}</span>
@@ -66,14 +66,14 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-3">
+          {{-- <div class="col-12 col-sm-3">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('中間/期末（割合）') }}</span>
                 <span class="info-box-number text-center text-muted mb-0">{{ $subject->midterm . ' / ' . $subject->endterm }}</span>
               </div>
             </div>
-          </div>
+          </div> --}}
 
         </div>
         <div class="row">
@@ -99,10 +99,9 @@
                                     <th>#</th>
                                     <th>{{ __('名前') }}</th>
                                     <th>{{ __('メール') }}</th>
-                                    <th class="text-center">{{ __('中間試験') }}</th>
-                                    <th class="text-center">{{ __('期末試験') }}</th>
-                                    <th class="text-center">{{ __('出席') }}</th>
-                                    <th class="text-center">{{ __('最終成績') }}</th>
+                                    @foreach ($subject->skills as $skill)
+                                      <th>{{ $skill->name }}</th>
+                                    @endforeach
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -111,14 +110,13 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->email }}</td>
-                                            <td class="text-center">{{ $student->pivot->midterm >= 0 ? $student->pivot->midterm : __('なし') }}</td>
-                                            <td class="text-center">{{ $student->pivot->endterm >= 0 ? $student->pivot->endterm : __('なし') }}</td>
-                                            <td class="text-center">{{ $student->pivot->attendance >= 0 ? $student->pivot->attendance : __('なし') }}</td>
-                                            @if ($student->pivot->midterm >= 0 && $student->pivot->endterm >= 0)
-                                              <td class="text-center">{{ $student->pivot->midterm * $subject->midterm + $student->pivot->endterm * $subject->endterm }}</td>
-                                            @else
-                                              <td class="text-center">{{ __('なし') }}</td>
-                                            @endif
+                                            @foreach ($subject->skills as $skill)
+                                              @foreach ($skill->students as $skill_student)
+                                                @if ($skill_student->id == $student->id)
+                                                  <td>{{ $skill_student->pivot->grade >= 0 ? $skill_student->pivot->grade : __('なし') }}</td>
+                                                @endif
+                                              @endforeach
+                                            @endforeach
                                         </tr>
                                         
                                     @endforeach
@@ -132,6 +130,16 @@
                         </div>
                         <!-- /.card -->
                       </div>
+
+                    </div>
+                    <!-- /.row -->
+              </div>
+          </div>
+
+          <div class="col-12 mt-5">
+              <h4>{{ __('レッスン') }}:</h4>
+              <div class="post">
+                  <div class="row">
 
                       <div class="col-12">
                         <div class="card">

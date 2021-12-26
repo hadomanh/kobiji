@@ -50,6 +50,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Lesson' , 'student_lesson', 'student_id', 'lesson_id')->withTimestamps()->withPivot('midterm', 'endterm');
     }
 
+    public function skills() {
+        return $this->belongsToMany('App\Models\Skill' , 'student_skill', 'student_id', 'skill_id')->withTimestamps()->withPivot('grade');
+    }
+
     function getAverage() {
         $subjects = $this->subjects;
         if (count($subjects) == 0) {

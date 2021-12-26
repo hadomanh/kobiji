@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Lesson;
+use App\Models\Skill;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -57,6 +58,16 @@ class UserSeeder extends Seeder
             $lesson->refresh();
         }
 
+        for ($i = 0; $i < 3; $i++) {
+            $skill = new Skill();
+            $skill->name = 'Skill ' . $i;
+            $skill->ratio = mt_rand() / mt_getrandmax();
+            $skill->subject()->associate($subject);
+            $skill->save();
+            $skill->refresh();
+        }
+
+
 
 
         for ($i = 0; $i < 10; $i++) {
@@ -78,6 +89,12 @@ class UserSeeder extends Seeder
             foreach ($subject->lessons as $lesson) {
                 $lesson->students()->attach($user->id, [
                     'status' => 'PRESENT',
+                ]);
+            }
+
+            foreach ($subject->skills as $skill) {
+                $skill->students()->attach($user->id, [
+                    'grade' => mt_rand(1, 10),
                 ]);
             }
         }
