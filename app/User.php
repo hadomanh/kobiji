@@ -68,4 +68,22 @@ class User extends Authenticatable
         }
         return $total / count($subjects);
     }
+
+    public function getAverageBy($subjectId)
+    {
+        $subject = $this->subjects()->where('subject_id', $subjectId)->first();
+        if ($subject == null) {
+            return 0;
+        }
+        $total = 0;
+        foreach ($subject->skills as $skill) {
+            foreach ($skill->students as $student) {
+                if ($student->id == $this->id) {
+                    $total += $student->pivot->grade * $skill->ratio;
+                }
+            }
+        }
+
+        return $total;
+    }
 }

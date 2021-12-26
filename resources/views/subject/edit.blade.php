@@ -118,7 +118,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                     <label>{{ __('Ratio') }}:</label>
-                    <input type="number" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
+                    <input type="number" step="any" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
                     </div>
                   </div>
 

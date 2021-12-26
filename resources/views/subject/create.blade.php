@@ -18,14 +18,14 @@
               </div>
             </div>
 
-            <div class="col-sm-4">
+            <input type="hidden" name="code" class="form-control" value="DEPRECATED" required>
+            {{-- <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('コード') }}:</label>
                 <input type="text" name="code" class="form-control" placeholder="Code..." required>
               </div>
-              
-            </div>
+            </div> --}}
 
             <div class="col-sm-4">
               <!-- text input -->
@@ -67,8 +67,10 @@
               </div>
             </div>
 
-            <div class="col-sm-4">
-              <!-- text input -->
+            {{-- DEPRECATED --}}
+            <input type="hidden" name="from" class="form-control" value="2012-12-12" required>
+            <input type="hidden" name="to" class="form-control" value="2012-12-12" required>
+            {{-- <div class="col-sm-4">
               <div class="form-group">
                 <label>{{ __('開始日') }}:</label>
                 <input type="date" name="from" class="form-control" placeholder="From..." required>
@@ -76,17 +78,16 @@
             </div>
 
             <div class="col-sm-4">
-              <!-- text input -->
               <div class="form-group">
                 <label>{{ __('終了日') }}:</label>
                 <input type="date" name="to" class="form-control" placeholder="To..." required>
               </div>
-            </div>
+            </div> --}}
 
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('Number of skill') }}:</label>
+                <label>{{ __('スキル数') }}:</label>
                 <input type="number" id="skillAmount" class="form-control" placeholder="Skill..." required>
               </div>
             </div>

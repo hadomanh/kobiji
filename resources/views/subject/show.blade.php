@@ -40,7 +40,8 @@
     <div class="row">
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
         <div class="row">
-          <div class="col-12 col-sm-4">
+
+          <div class="col-12 col-sm-6">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('コース名') }}</span>
@@ -48,16 +49,17 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-4">
+          
+          {{-- <div class="col-12 col-sm-3">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('コード') }}</span>
                 <span class="info-box-number text-center text-muted mb-0">{{ $subject->code }}</span>
               </div>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6">
             <div class="info-box bg-light">
               <div class="info-box-content">
                 <span class="info-box-text text-center text-muted">{{ __('参加者の最大数') }}</span>
@@ -102,6 +104,7 @@
                                     @foreach ($subject->skills as $skill)
                                       <th>{{ $skill->name }}</th>
                                     @endforeach
+                                    <th>{{ __('最終成績') }}</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -117,6 +120,7 @@
                                                 @endif
                                               @endforeach
                                             @endforeach
+                                            <td>{{ $student->getAverageBy($subject->id) }}</td>
                                         </tr>
                                         
                                     @endforeach
@@ -134,6 +138,11 @@
                     </div>
                     <!-- /.row -->
               </div>
+          </div>
+
+          <div class="col-12">
+            <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
+            <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">コースの追加</a>
           </div>
 
           <div class="col-12 mt-5">
@@ -189,16 +198,16 @@
                     <!-- /.row -->
               </div>
           </div>
+          
+          <div class="col-12">
+            <a href="{{ route('lessons.create', $subject->id) }}" class="btn btn-warning">レッスン登録</a>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <div class="pl-5 pb-3">
-    <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
-    <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">コースの追加</a>
-    <a href="{{ route('lessons.create', $subject->id) }}" class="btn btn-warning">レッスン登録</a>
-  </div>
   <!-- /.card-body -->
 </div>
 <!-- /.card -->
