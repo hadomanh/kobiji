@@ -43,7 +43,9 @@ class LessonController extends Controller
     {
         $lesson = new Lesson();
         $lesson->title = $request->title;
-        $lesson->time = $request->date . ' ' . $request->time;
+        $lesson->date = $request->date;
+        $lesson->from = $request->from;
+        $lesson->to = $request->to;
         $lesson->subject()->associate($subject);
         $lesson->save();
         $lesson->refresh();

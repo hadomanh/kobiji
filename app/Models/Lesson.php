@@ -8,7 +8,9 @@ class Lesson extends Model
 {
     protected $fillable = [
         'title',
-        'time',
+        'date',
+        'from',
+        'to',
     ];
 
     public function subject() {

@@ -62,7 +62,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('クォータ') }}:</label>
+                <label>{{ __('参加者の最大数') }}:</label>
                 <input type="number" name="limit" class="form-control" placeholder="Limit..." value="{{ $subject->limit }}" required>
               </div>
             </div>

@@ -62,7 +62,7 @@
             <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
-                <label>{{ __('クォータ') }}:</label>
+                <label>{{ __('参加者の最大数') }}:</label>
                 <input type="number" name="limit" class="form-control" placeholder="Limit..." required>
               </div>
             </div>
@@ -81,6 +81,17 @@
                 <label>{{ __('終了日') }}:</label>
                 <input type="date" name="to" class="form-control" placeholder="To..." required>
               </div>
+            </div>
+
+            <div class="col-sm-4">
+              <!-- text input -->
+              <div class="form-group">
+                <label>{{ __('Number of skill') }}:</label>
+                <input type="number" id="skillAmount" class="form-control" placeholder="Skill..." required>
+              </div>
+            </div>
+
+            <div id="skill" class="col-sm-12">
             </div>
 
         </div>
@@ -104,3 +115,29 @@
   </div>
   <!-- /.card -->
 @endsection
+
+@push('script')
+<script>
+    $('#skillAmount').change(function () {
+      var skillAmount = $(this).val();
+      var skill = '';
+      for (var i = 0; i < skillAmount; i++) {
+        skill += '<div class="row">';
+        skill += '<div class="col-sm-4">' +
+          '<div class="form-group">' +
+          '<label>{{ __('Skill') }}:</label>' +
+          '<input type="text" name="skill[]" class="form-control" placeholder="Skill..." required>' +
+          '</div>' +
+          '</div>';
+        skill += '<div class="col-sm-4">' +
+          '<div class="form-group">' +
+          '<label>{{ __('Ratio') }}:</label>' +
+          '<input type="text" name="ratio[]" class="form-control" placeholder="Ratio..." required>' +
+          '</div>' +
+          '</div>';
+        skill += '</div>';
+      }
+      $('#skill').html(skill);
+    });
+</script>
+@endpush

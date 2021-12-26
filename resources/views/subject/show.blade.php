@@ -60,7 +60,7 @@
           <div class="col-12 col-sm-3">
             <div class="info-box bg-light">
               <div class="info-box-content">
-                <span class="info-box-text text-center text-muted">{{ __('クォータ') }}</span>
+                <span class="info-box-text text-center text-muted">{{ __('参加者の最大数') }}</span>
                 <span class="info-box-number text-center text-muted mb-0">{{ $subject->limit }}</span>
               </div>
             </div>
@@ -142,8 +142,10 @@
                                 <thead>
                                   <tr>
                                     <th>#</th>
-                                    <th>{{ __('Title') }}</th>
-                                    <th>{{ __('Time') }}</th>
+                                    <th>{{ __('レッスン名') }}</th>
+                                    <th>{{ __('開催日') }}</th>
+                                    <th>{{ __('開始時間') }}</th>
+                                    <th>{{ __('終了時間') }}</th>
                                     <th></th>
                                   </tr>
                                 </thead>
@@ -152,7 +154,9 @@
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $lesson->title }}</td>
-                                            <td>{{ $lesson->time }}</td>
+                                            <td>{{ $lesson->date }}</td>
+                                            <td>{{ $lesson->from }}</td>
+                                            <td>{{ $lesson->to }}</td>
                                             <td>
                                               <a href="{{ route('lessons.attendance.detail', $lesson->id) }}" class="btn btn-outline-primary">View</a>
                                               <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.lessons.delete', $lesson->id) }}" data-toggle="modal" data-target="#modal-default">
@@ -185,7 +189,7 @@
   <div class="pl-5 pb-3">
     <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
     <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">コースの追加</a>
-    <a href="{{ route('lessons.create', $subject->id) }}" class="btn btn-warning">Add lesson</a>
+    <a href="{{ route('lessons.create', $subject->id) }}" class="btn btn-warning">レッスン登録</a>
   </div>
   <!-- /.card-body -->
 </div>
