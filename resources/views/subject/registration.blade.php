@@ -13,7 +13,7 @@
           <tr>
             <th style="width: 10px">#</th>
             <th>{{ __('コース名') }}</th>
-            <th>{{ __('コード') }}</th>
+            {{-- <th>{{ __('コード') }}</th> --}}
             <th>{{ __('出席') }}</th>
             <th></th>
           </tr>
@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $subject->name }}</td>
-                    <td>{{ $subject->code }}</td>
+                    {{-- <td>{{ $subject->code }}</td> --}}
                     <td>{{ $subject->students->count() }} / {{ $subject->limit }}</td>
                     <td>
                         <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-outline-primary">

@@ -66,7 +66,7 @@
                                         <tr>
                                           <th>#</th>
                                           <th>{{ __('コース名') }}</th>
-                                          <th>{{ __('コード') }}</th>
+                                          {{-- <th>{{ __('コード') }}</th> --}}
                                           <th class="text-center">{{ __('中間テスト') }}</th>
                                           <th class="text-center">{{ __('期末テスト') }}</th>
                                           <th class="text-center">{{ __('最終成績') }}</th>
@@ -77,7 +77,7 @@
                                               <tr>
                                                   <td>{{ $loop->index + 1 }}</td>
                                                   <td>{{ $subject->name }}</td>
-                                                  <td>{{ $subject->code }}</td>
+                                                  {{-- <td>{{ $subject->code }}</td> --}}
                                                   <td class="text-center">{{ $subject->pivot->midterm ?? __('なし') }}</td>
                                                   <td class="text-center">{{ $subject->pivot->endterm ?? __('なし') }}</td>
                                                   @if ($subject->pivot->midterm > -1 && $subject->pivot->endterm > -1)

@@ -19,13 +19,14 @@
               </div>
             </div>
 
-            <div class="col-sm-4">
+            <input type="hidden" name="code" class="form-control" value="{{ $subject->code }}" required>
+            {{-- <div class="col-sm-4">
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('コード') }}:</label>
                 <input type="text" name="code" class="form-control" placeholder="Code..." value="{{ $subject->code }}" required>
               </div>
-            </div>
+            </div> --}}
 
             <div class="col-sm-4">
               <!-- text input -->
