@@ -64,6 +64,7 @@ class SubjectController extends Controller
         for ($i=0; $i < count($request->skill); $i++) { 
             $skill = new Skill();
             $skill->name = $request->skill[$i];
+            $skill->type = $request->type[$i];
             $skill->ratio = $request->ratio[$i];
             $skill->subject()->associate($subject);
 
@@ -121,6 +122,7 @@ class SubjectController extends Controller
             foreach ($subject->skills as $subjectSkill) {
                 if ($subjectSkill->id == $skill['id']) {
                     $subjectSkill->name = $skill['name'];
+                    $subjectSkill->type = $skill['type'];
                     $subjectSkill->ratio = $skill['ratio'];
                     $subjectSkill->save();
                 }

@@ -17,7 +17,7 @@ class CreateStudentLessonTable extends Migration
             $table->foreignId('student_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('lesson_id')->constrained('lessons')->onUpdate('cascade')->onDelete('cascade');
             $table->primary(['student_id', 'lesson_id']);
-            $table->string('status')->default('PRESENT');
+            $table->string('status')->default('出席');
             $table->timestamps();
         });
     }

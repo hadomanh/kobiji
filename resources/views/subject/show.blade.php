@@ -120,7 +120,7 @@
                                                 @endif
                                               @endforeach
                                             @endforeach
-                                            <td>{{ $student->getAverageBy($subject->id) }}</td>
+                                            <td>{{ $student->getAverageBySubject($subject->id) }}</td>
                                         </tr>
                                         
                                     @endforeach

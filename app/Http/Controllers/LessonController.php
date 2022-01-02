@@ -52,7 +52,7 @@ class LessonController extends Controller
 
         foreach ($subject->students as $student) {
             $lesson->students()->attach($student->id, [
-                'status' => 'PRESENT',
+                'status' => '出席',
             ]);
         }
 

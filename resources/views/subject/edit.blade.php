@@ -118,6 +118,24 @@
 
                   <div class="col-sm-4">
                     <div class="form-group">
+                    <label>{{ __('Type') }}:</label>
+                    <select name="{{ "skills[" . $loop->index . "][type]"}}" class="form-control" required>
+                      <option value=0 {{ $skill->type == 0 ? "selected" : "" }}>{{ __('Type 0') }}</option>
+                      <option value=1 {{ $skill->type == 1 ? "selected" : "" }}>{{ __('Type 1') }}</option>
+                      <option value=2 {{ $skill->type == 2 ? "selected" : "" }}>{{ __('Type 2') }}</option>
+                      <option value=3 {{ $skill->type == 3 ? "selected" : "" }}>{{ __('Type 3') }}</option>
+                      <option value=4 {{ $skill->type == 4 ? "selected" : "" }}>{{ __('Type 4') }}</option>
+                      <option value=5 {{ $skill->type == 5 ? "selected" : "" }}>{{ __('Type 5') }}</option>
+                      <option value=6 {{ $skill->type == 6 ? "selected" : "" }}>{{ __('Type 6') }}</option>
+                      <option value=7 {{ $skill->type == 7 ? "selected" : "" }}>{{ __('Type 7') }}</option>
+                      <option value=8 {{ $skill->type == 8 ? "selected" : "" }}>{{ __('Type 8') }}</option>
+                      <option value=9 {{ $skill->type == 9 ? "selected" : "" }}>{{ __('Type 9') }}</option>
+                    </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <div class="form-group">
                     <label>{{ __('Ratio') }}:</label>
                     <input type="number" step="any" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
                     </div>

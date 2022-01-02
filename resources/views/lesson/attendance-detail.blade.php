@@ -25,10 +25,10 @@
                                     <table class="table table-hover text-nowrap">
                                       <thead>
                                         <tr>
-                                          <th>#</th>
-                                          <th>{{ __('Name') }}</th>
-                                          <th>{{ __('Email') }}</th>
-                                          <th>{{ __('Attendance') }}</th>
+                                          <th>{{ __('No')}}</th>
+                                          <th>{{ __('名前') }}</th>
+                                          <th>{{ __('メール') }}</th>
+                                          <th>{{ __('出欠') }}</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -40,10 +40,10 @@
                                                     <td>{{ $student->email }}</td>
                                                     <td>
                                                       <select class="form-control" name="{{"students[" . $loop->index . "][status]"}}">
-                                                        <option class="text-center" {{ $student->pivot->status === 'PRESENT' ? 'selected' : '' }} value="PRESENT">PRESENT</option>
-                                                        <option class="text-center" {{ $student->pivot->status === 'LATE' ? 'selected' : '' }} value="LATE">LATE</option>
-                                                        <option class="text-center" {{ $student->pivot->status === 'ABSENCE' ? 'selected' : '' }} value="ABSENCE">ABSENCE</option>
-                                                        <option class="text-center" {{ $student->pivot->status === 'UNAUTHORIZED ABSENCE' ? 'selected' : '' }} value="UNAUTHORIZED ABSENCE">UNAUTHORIZED ABSENCE</option>
+                                                        <option class="text-center" {{ $student->pivot->status === '出席' ? 'selected' : '' }} value="出席">出席</option>
+                                                        <option class="text-center" {{ $student->pivot->status === '遅刻' ? 'selected' : '' }} value="遅刻">遅刻</option>
+                                                        <option class="text-center" {{ $student->pivot->status === '欠席' ? 'selected' : '' }} value="欠席">欠席</option>
+                                                        <option class="text-center" {{ $student->pivot->status === '無断欠席' ? 'selected' : '' }} value="無断欠席">無断欠席</option>
                                                       </select>
                                                     </td>
                                               </tr>

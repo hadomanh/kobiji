@@ -83,7 +83,14 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show', compact('user'));
+        $typeAverage = array();
+        $average = 0;
+        for ($i = 0; $i <= 9; $i++) {
+            $typeAverage[$i] = $user->getAverageByType($i);
+            $average += $typeAverage[$i];
+        }
+        $average = $average / 10;
+        return view('user.show', compact('user', 'typeAverage', 'average'));
     }
 
     /**

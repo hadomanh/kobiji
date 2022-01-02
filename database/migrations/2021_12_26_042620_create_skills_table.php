@@ -16,7 +16,8 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('ratio');
+            $table->integer('type');
+            $table->double('ratio');
             $table->foreignId('subject_id')->constrained('subjects')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

@@ -11,11 +11,15 @@
         @csrf
         <div class="row">
 
-            <div class="col-sm-4">
-              <!-- text input -->
-              <div class="form-group">
-                <label>{{ __('レッスン名') }}:</label>
-                <input type="text" name="title" class="form-control" placeholder="Title..." required>
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-4">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>{{ __('レッスン名') }}:</label>
+                    <input type="text" name="title" class="form-control" placeholder="Title..." required>
+                  </div>
+                </div>
               </div>
             </div>
 

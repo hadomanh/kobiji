@@ -20,7 +20,37 @@
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
-                <b>Average</b> <a class="float-right">{{ $user->getAverage() }}</a>
+                <b>Average</b> <a class="float-right">{{ $average }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 0</b> <a class="float-right">{{ $typeAverage[0] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 1</b> <a class="float-right">{{ $typeAverage[1] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 2</b> <a class="float-right">{{ $typeAverage[2] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 3</b> <a class="float-right">{{ $typeAverage[3] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 4</b> <a class="float-right">{{ $typeAverage[4] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 5</b> <a class="float-right">{{ $typeAverage[5] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 6</b> <a class="float-right">{{ $typeAverage[6] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 7</b> <a class="float-right">{{ $typeAverage[7] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 8</b> <a class="float-right">{{ $typeAverage[8] }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Type 9</b> <a class="float-right">{{ $typeAverage[9] }}</a>
               </li>
               <li class="list-group-item">
                 <b>Status</b>
@@ -67,8 +97,8 @@
                                           <th>#</th>
                                           <th>{{ __('コース名') }}</th>
                                           {{-- <th>{{ __('コード') }}</th> --}}
-                                          <th class="text-center">{{ __('中間テスト') }}</th>
-                                          <th class="text-center">{{ __('期末テスト') }}</th>
+                                          {{-- <th class="text-center">{{ __('中間テスト') }}</th> --}}
+                                          {{-- <th class="text-center">{{ __('期末テスト') }}</th> --}}
                                           <th class="text-center">{{ __('最終成績') }}</th>
                                         </tr>
                                       </thead>
@@ -78,13 +108,14 @@
                                                   <td>{{ $loop->index + 1 }}</td>
                                                   <td>{{ $subject->name }}</td>
                                                   {{-- <td>{{ $subject->code }}</td> --}}
-                                                  <td class="text-center">{{ $subject->pivot->midterm ?? __('なし') }}</td>
-                                                  <td class="text-center">{{ $subject->pivot->endterm ?? __('なし') }}</td>
-                                                  @if ($subject->pivot->midterm > -1 && $subject->pivot->endterm > -1)
+                                                  {{-- <td class="text-center">{{ $subject->pivot->midterm ?? __('なし') }}</td> --}}
+                                                  {{-- <td class="text-center">{{ $subject->pivot->endterm ?? __('なし') }}</td> --}}
+                                                  {{-- @if ($subject->pivot->midterm > -1 && $subject->pivot->endterm > -1)
                                                     <td class="text-center">{{ $subject->pivot->midterm * $subject->midterm + $subject->pivot->endterm * $subject->endterm }}</td>
                                                   @else
                                                     <td class="text-center">{{ __('なし') }}</td>
-                                                  @endif
+                                                  @endif --}}
+                                                  <td class="text-center">{{ $user->getAverageBySubject($subject->id) }}</td>
                                                   
                                               </tr>
                                               
