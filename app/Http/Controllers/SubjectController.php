@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class SubjectController extends Controller
 {
-    private $perPage = 5;
+    private $perPage = 8;
     private $subject;
 
     public function __construct(Subject $subject) {
