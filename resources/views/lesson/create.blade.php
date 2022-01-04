@@ -58,7 +58,7 @@
         <br>
         <div class="row">
             <div class="col-3"></div>
-            <a class="btn btn-outline-secondary col-6" href="{{ route('subjects.index') }}">{{ __('キャンセル') }}</a>
+            <a class="btn btn-outline-secondary col-6" href="{{ url()->previous() }}">{{ __('キャンセル') }}</a>
         </div>
         <br>
 

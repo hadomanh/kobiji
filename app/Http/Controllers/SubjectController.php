@@ -169,6 +169,11 @@ class SubjectController extends Controller
         foreach ($subject->skills()->get() as $skill) {
             $skill->students()->sync($students);
         }
+        
+        foreach ($subject->lessons()->get() as $lesson) {
+            $lesson->students()->sync($students);
+        }
+
         return redirect()->route('subjects.registration');
     }
 

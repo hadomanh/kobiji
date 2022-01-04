@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function lessons() {
-        return $this->belongsToMany('App\Models\Lesson' , 'student_lesson', 'student_id', 'lesson_id')->withTimestamps()->withPivot('midterm', 'endterm');
+        return $this->belongsToMany('App\Models\Lesson' , 'student_lesson', 'student_id', 'lesson_id')->withTimestamps()->withPivot('status');
     }
 
     public function skills() {

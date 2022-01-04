@@ -8,7 +8,8 @@ class Skill extends Model
 {
     protected $fillable = [
         'name',
-        'ratio'
+        'ratio',
+        'type',
     ];
 
     public function students() {

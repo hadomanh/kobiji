@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $lesson = new Lesson();
             $lesson->title = 'Lesson ' . $i;
-            $lesson->date = date('Y-m-d');
+            $lesson->date = date('Y-m-d', strtotime('+' . mt_rand(0, 7) . ' days'));
             $lesson->from = date('H:i');
             $lesson->to = date('H:i', strtotime('+1 hour'));
             $lesson->subject()->associate($subject);
