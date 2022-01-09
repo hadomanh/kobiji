@@ -196,7 +196,7 @@
                 <li class="nav-item">
                   <a href="{{ route('subjects.student-registration') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>学生の追加</p>
+                    <p>コース</p>
                   </a>
                 </li>
               </ul>

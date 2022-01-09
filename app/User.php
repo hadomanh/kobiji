@@ -92,6 +92,10 @@ class User extends Authenticatable
             }
         }
 
+        if ($totalRatio == 0) {
+            return 0;
+        }
+
         return $total / $totalRatio;
     }
 
