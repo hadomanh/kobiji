@@ -39,7 +39,21 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('教師名') }}:</label>
-                <input type="text" name="teacher" class="form-control" placeholder="Teacher..." required>
+                <select name="teacher" class="form-control" required>
+                  <option value="ド・マイン・ハー">{{ __('ド・マイン・ハー') }}</option>
+                  <option value="グエン・ティ・トゥ・チャ">{{ __('グエン・ティ・トゥ・チャ')}}</option>
+                  <option value="グエン・ティ・トゥ・ハン">{{ __('グエン・ティ・トゥ・ハン')}}</option>
+                  <option value="グエン・バン・ジャン">{{ __('グエン・バン・ジャン')}}</option>
+                  <option value="ダオ・ドゥック・ティエン">{{ __('ダオ・ドゥック・ティエン')}}</option>
+                  <option value="チャン・ニャット・トン">{{ __('チャン・ニャット・トン')}}</option>
+                  <option value="ド・クアン・ナム">{{ __('ド・クアン・ナム')}}</option>
+                  <option value="グエン・ティ・ハイ・タイン">{{ __('グエン・ティ・ハイ・タイン')}}</option>
+                  <option value="グエン・タイン・ハー">{{ __('グエン・タイン・ハー')}}</option>
+                  <option value="ファム・チュン・ヒエウ">{{ __('ファム・チュン・ヒエウ')}}</option>
+                  <option value="レ・ホアン・マイン">{{ __('レ・ホアン・マイン')}}</option>
+                  <option value="ブ・ミン・ホアン・アイン">{{ __('ブ・ミン・ホアン・アイン')}}</option>
+                  <option value="他">{{ __('他') }}</option>
+                </select>
               </div>
             </div>
 
@@ -47,7 +61,15 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('対象') }}:</label>
-                <input type="text" name="target" class="form-control" placeholder="Target..." required>
+                <select name="target" class="form-control" required>
+                  <option value="俳優">{{ __('俳優')}}</option>
+                  <option value="モデル">{{ __('モデル')}}</option>
+                  <option value="歌手">{{ __('歌手')}}</option>
+                  <option value="アイドル">{{ __('アイドル')}}</option>
+                  <option value="声優">{{ __('声優')}}</option>
+                  <option value="云々">{{ __('云々')}}</option>
+                  <option value="他">{{ __('他')}}</option>
+                </select>
               </div>
             </div>
 
@@ -63,7 +85,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('参加者の最大数') }}:</label>
-                <input type="number" name="limit" class="form-control" placeholder="Limit..." required>
+                <input type="number" min="1" name="limit" class="form-control" placeholder="Limit..." required>
               </div>
             </div>
 
@@ -88,7 +110,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('スキル数') }}:</label>
-                <input type="number" id="skillAmount" class="form-control" placeholder="Skill..." required>
+                <input type="number" min="1" id="skillAmount" class="form-control" placeholder="Skill..." required>
               </div>
             </div>
 
@@ -134,23 +156,23 @@
           '<div class="form-group">' +
           '<label>{{ __('Type') }}:</label>' +
           '<select name="type[]" class="form-control" required>' +
-          '<option value=0>{{ __('Type 0') }}</option>' +
-          '<option value=1>{{ __('Type 1') }}</option>' +
-          '<option value=2>{{ __('Type 2') }}</option>' +
-          '<option value=3>{{ __('Type 3') }}</option>' +
-          '<option value=4>{{ __('Type 4') }}</option>' +
+          '<option value=0>{{ __('ダンス') }}</option>' +
+          '<option value=1>{{ __('歌い') }}</option>' +
+          '<option value=2>{{ __('演技') }}</option>' +
+          '<option value=3>{{ __('楽器') }}</option>' +
+          '<option value=4>{{ __('外国語') }}</option>' +
           '<option value=5>{{ __('Type 5') }}</option>' +
           '<option value=6>{{ __('Type 6') }}</option>' +
           '<option value=7>{{ __('Type 7') }}</option>' +
           '<option value=8>{{ __('Type 8') }}</option>' +
-          '<option value=9>{{ __('Type 9') }}</option>' +
+          '<option value=9>{{ __('他') }}</option>' +
           '</select>' +
           '</div>' +
           '</div>';
         skill += '<div class="col-sm-4">' +
           '<div class="form-group">' +
           '<label>{{ __('Ratio') }}:</label>' +
-          '<input type="number" name="ratio[]" step="any" class="form-control" placeholder="Ratio..." required>' +
+          '<input type="number" min="0" name="ratio[]" step="any" class="form-control" placeholder="Ratio..." required>' +
           '</div>' +
           '</div>';
         skill += '</div>';

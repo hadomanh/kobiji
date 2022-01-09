@@ -6,6 +6,7 @@ use App\Models\Skill;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class SubjectController extends Controller
@@ -50,7 +51,7 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->code = $request->code;
         $subject->teacher = $request->teacher;
-        $subject->target = $request->teacher;
+        $subject->target = $request->target;
         $subject->session = $request->session;
         $subject->to = $request->to;
         $subject->from = $request->from;
@@ -175,6 +176,33 @@ class SubjectController extends Controller
         }
 
         return redirect()->route('subjects.registration');
+    }
+
+    public function studentRegistration() {
+
+        $subjects = Subject::orderBy('updated_at', 'desc')
+                    ->whereDoesntHave('students', function($query) {
+                        $query->where('student_id', auth()->user()->id);
+                    })
+                    ->withCount('students')
+                    ->having('students_count', '<', DB::raw('subjects.limit'))
+                    ->paginate($this->perPage);
+
+        return view('subject.student-registration')->with(compact('subjects'));
+    }
+
+    public function studentRegistrationSubmit(Request $request, Subject $subject) {
+        $subject->students()->attach(auth()->user()->id);
+
+        foreach ($subject->skills()->get() as $skill) {
+            $skill->students()->attach(auth()->user()->id);
+        }
+
+        foreach ($subject->lessons()->get() as $lesson) {
+            $lesson->students()->attach(auth()->user()->id);
+        }
+
+        return redirect()->back();
     }
 
     public function grading() {

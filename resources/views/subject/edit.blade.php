@@ -40,7 +40,21 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('教師名') }}:</label>
-                <input type="text" name="teacher" class="form-control" placeholder="Teacher..." value="{{ $subject->teacher }}" required>
+                <select name="teacher" class="form-control" required>
+                  <option value="ド・マイン・ハー" {{ $subject->teacher == 'ド・マイン・ハー' ? 'selected' : ''}}> {{ __('ド・マイン・ハー') }}</option>
+                  <option value="グエン・ティ・トゥ・チャ" {{ $subject->teacher == 'グエン・ティ・トゥ・チャ' ? 'selected' : ''}}> {{ __('グエン・ティ・トゥ・チャ') }}</option>
+                  <option value="グエン・ティ・トゥ・ハン" {{ $subject->teacher == 'グエン・ティ・トゥ・ハン' ? 'selected' : ''}}> {{ __('グエン・ティ・トゥ・ハン') }}</option>
+                  <option value="グエン・バン・ジャン" {{ $subject->teacher == 'グエン・バン・ジャン' ? 'selected' : ''}}> {{ __('グエン・バン・ジャン') }}</option>
+                  <option value="ダオ・ドゥック・ティエン" {{ $subject->teacher == 'ダオ・ドゥック・ティエン' ? 'selected' : ''}}> {{ __('ダオ・ドゥック・ティエン') }}</option>
+                  <option value="チャン・ニャット・トン" {{ $subject->teacher == 'チャン・ニャット・トン' ? 'selected' : ''}}> {{ __('チャン・ニャット・トン') }}</option>
+                  <option value="ド・クアン・ナム" {{ $subject->teacher == 'ド・クアン・ナム' ? 'selected' : ''}}> {{ __('ド・クアン・ナム') }}</option>
+                  <option value="グエン・ティ・ハイ・タイン" {{ $subject->teacher == 'グエン・ティ・ハイ・タイン' ? 'selected' : ''}}> {{ __('グエン・ティ・ハイ・タイン') }}</option>
+                  <option value="グエン・タイン・ハー" {{ $subject->teacher == 'グエン・タイン・ハー' ? 'selected' : ''}}> {{ __('グエン・タイン・ハー') }}</option>
+                  <option value="ファム・チュン・ヒエウ" {{ $subject->teacher == 'ファム・チュン・ヒエウ' ? 'selected' : ''}}> {{ __('ファム・チュン・ヒエウ') }}</option>
+                  <option value="レ・ホアン・マイン" {{ $subject->teacher == 'レ・ホアン・マイン' ? 'selected' : ''}}> {{ __('レ・ホアン・マイン') }}</option>
+                  <option value="ブ・ミン・ホアン・アイン" {{ $subject->teacher == 'ブ・ミン・ホアン・アイン' ? 'selected' : ''}}> {{ __('ブ・ミン・ホアン・アイン') }}</option>
+                  <option value="他" {{ $subject->teacher == '他' ? 'selected' : ''}}> {{ __('他') }}</option>
+                </select>
               </div>
             </div>
 
@@ -48,7 +62,15 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('対象') }}:</label>
-                <input type="text" name="target" class="form-control" placeholder="Target..." value="{{ $subject->target }}" required>
+                <select name="target" class="form-control" required>
+                  <option value="俳優" {{ $subject->target == '俳優' ? 'selected' : ''}}> {{ __('俳優')}} </option>
+                  <option value="モデル" {{ $subject->target == 'モデル' ? 'selected' : ''}}> {{ __('モデル')}} </option>
+                  <option value="歌手" {{ $subject->target == '歌手' ? 'selected' : ''}}> {{ __('歌手')}} </option>
+                  <option value="アイドル" {{ $subject->target == 'アイドル' ? 'selected' : ''}}> {{ __('アイドル')}} </option>
+                  <option value="声優" {{ $subject->target == '声優' ? 'selected' : ''}}> {{ __('声優')}} </option>
+                  <option value="云々" {{ $subject->target == '云々' ? 'selected' : ''}}> {{ __('云々')}} </option>
+                  <option value="他" {{ $subject->target == '他' ? 'selected' : ''}}> {{ __('他')}} </option>
+                </select>
               </div>
             </div>
 
@@ -64,7 +86,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('参加者の最大数') }}:</label>
-                <input type="number" name="limit" class="form-control" placeholder="Limit..." value="{{ $subject->limit }}" required>
+                <input type="number" min="1" name="limit" class="form-control" placeholder="Limit..." value="{{ $subject->limit }}" required>
               </div>
             </div>
 
@@ -120,16 +142,16 @@
                     <div class="form-group">
                     <label>{{ __('Type') }}:</label>
                     <select name="{{ "skills[" . $loop->index . "][type]"}}" class="form-control" required>
-                      <option value=0 {{ $skill->type == 0 ? "selected" : "" }}>{{ __('Type 0') }}</option>
-                      <option value=1 {{ $skill->type == 1 ? "selected" : "" }}>{{ __('Type 1') }}</option>
-                      <option value=2 {{ $skill->type == 2 ? "selected" : "" }}>{{ __('Type 2') }}</option>
-                      <option value=3 {{ $skill->type == 3 ? "selected" : "" }}>{{ __('Type 3') }}</option>
-                      <option value=4 {{ $skill->type == 4 ? "selected" : "" }}>{{ __('Type 4') }}</option>
+                      <option value=0 {{ $skill->type == 0 ? "selected" : "" }}>{{ __('ダンス') }}</option>
+                      <option value=1 {{ $skill->type == 1 ? "selected" : "" }}>{{ __('歌い') }}</option>
+                      <option value=2 {{ $skill->type == 2 ? "selected" : "" }}>{{ __('歌演技') }}</option>
+                      <option value=3 {{ $skill->type == 3 ? "selected" : "" }}>{{ __('楽器') }}</option>
+                      <option value=4 {{ $skill->type == 4 ? "selected" : "" }}>{{ __('外国語') }}</option>
                       <option value=5 {{ $skill->type == 5 ? "selected" : "" }}>{{ __('Type 5') }}</option>
                       <option value=6 {{ $skill->type == 6 ? "selected" : "" }}>{{ __('Type 6') }}</option>
                       <option value=7 {{ $skill->type == 7 ? "selected" : "" }}>{{ __('Type 7') }}</option>
                       <option value=8 {{ $skill->type == 8 ? "selected" : "" }}>{{ __('Type 8') }}</option>
-                      <option value=9 {{ $skill->type == 9 ? "selected" : "" }}>{{ __('Type 9') }}</option>
+                      <option value=9 {{ $skill->type == 9 ? "selected" : "" }}>{{ __('他') }}</option>
                     </select>
                     </div>
                   </div>
@@ -137,7 +159,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                     <label>{{ __('Ratio') }}:</label>
-                    <input type="number" step="any" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
+                    <input type="number" min="0" step="any" name="{{ "skills[" . $loop->index . "][ratio]"}}" class="form-control" placeholder="Ratio..." value="{{ $skill->ratio }}" required>
                     </div>
                   </div>
 

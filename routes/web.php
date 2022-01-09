@@ -24,6 +24,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/logout', 'HomeController@logout')->name('logout');
 
+    Route::get('/subjects/student-registration', 'SubjectController@studentRegistration')->name('subjects.student-registration');
+    Route::get('/subjects/student-registration-submit/{subject}', 'SubjectController@studentRegistrationSubmit')->name('subjects.student-registration-submit');
+
     Route::middleware(['admin.only'])->group(function () {
         Route::get('subjects/{subject}/edit', 'SubjectController@edit')->name('subjects.edit');
         Route::put('subjects/{subject}', 'SubjectController@update')->name('subjects.update');

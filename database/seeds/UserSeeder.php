@@ -35,10 +35,10 @@ class UserSeeder extends Seeder
 
         $subject = new Subject();
         $subject->name = 'Math';
-        $subject->code = 'IT1102';
+        $subject->code = 'DEPRECATED';
         $subject->description = 'Math';
-        $subject->teacher = 'Mr. Quang';
-        $subject->target = 'Naiteisha';
+        $subject->teacher = 'ド・マイン・ハー';
+        $subject->target = 'アイドル';
         $subject->session = 15;
         $subject->from = now();
         $subject->to = now()->addDays(10);
@@ -104,9 +104,9 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $subject = new Subject();
             $subject->name = 'Subject ' . $i;
-            $subject->code = 'IT120' . $i;
-            $subject->teacher = 'Mr. Quang';
-            $subject->target = 'Naiteisha';
+            $subject->code = 'DEPRECATED';
+            $subject->teacher = 'ド・マイン・ハー';
+            $subject->target = 'アイドル';
             $subject->session = 15;
             $subject->description = 'Math';
             $subject->from = now();

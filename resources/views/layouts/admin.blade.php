@@ -180,6 +180,30 @@
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
+      @else
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link">
+                <i class="fas fa-book"></i>
+                <p>
+                  コース
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('subjects.student-registration') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>学生の追加</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </nav>
       @endif
     </div>
     <!-- /.sidebar -->

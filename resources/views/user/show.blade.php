@@ -23,19 +23,19 @@
                 <b>Average</b> <a class="float-right">{{ $average }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 0</b> <a class="float-right">{{ $typeAverage[0] }}</a>
+                <b>ダンス</b> <a class="float-right">{{ $typeAverage[0] }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 1</b> <a class="float-right">{{ $typeAverage[1] }}</a>
+                <b>歌い</b> <a class="float-right">{{ $typeAverage[1] }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 2</b> <a class="float-right">{{ $typeAverage[2] }}</a>
+                <b>歌演技</b> <a class="float-right">{{ $typeAverage[2] }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 3</b> <a class="float-right">{{ $typeAverage[3] }}</a>
+                <b>楽器</b> <a class="float-right">{{ $typeAverage[3] }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 4</b> <a class="float-right">{{ $typeAverage[4] }}</a>
+                <b>外国語</b> <a class="float-right">{{ $typeAverage[4] }}</a>
               </li>
               <li class="list-group-item">
                 <b>Type 5</b> <a class="float-right">{{ $typeAverage[5] }}</a>
@@ -50,7 +50,7 @@
                 <b>Type 8</b> <a class="float-right">{{ $typeAverage[8] }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 9</b> <a class="float-right">{{ $typeAverage[9] }}</a>
+                <b>他</b> <a class="float-right">{{ $typeAverage[9] }}</a>
               </li>
               <li class="list-group-item">
                 <b>Status</b>

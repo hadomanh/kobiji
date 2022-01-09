@@ -50,17 +50,17 @@
 
                                                     {{-- <td>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control" value="{{ $student->pivot->midterm }}" name="{{"students[" . $loop->index . "][midterm]"}}" >
+                                                            <input type="number" min="0.000001" class="form-control" value="{{ $student->pivot->midterm }}" name="{{"students[" . $loop->index . "][midterm]"}}" >
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control" value="{{ $student->pivot->endterm }}" name="{{"students[" . $loop->index . "][endterm]"}}" >
+                                                            <input type="number" min="0.000001" class="form-control" value="{{ $student->pivot->endterm }}" name="{{"students[" . $loop->index . "][endterm]"}}" >
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control" value="{{ $student->pivot->attendance }}" name="{{"students[" . $loop->index . "][attendance]"}}" >
+                                                            <input type="number" min="0.000001" class="form-control" value="{{ $student->pivot->attendance }}" name="{{"students[" . $loop->index . "][attendance]"}}" >
                                                         </div>
                                                     </td> --}}
                                                     
