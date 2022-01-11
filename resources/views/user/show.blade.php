@@ -38,19 +38,7 @@
                 <b>外国語</b> <a class="float-right">{{ number_format($typeAverage[4], 2) }}</a>
               </li>
               <li class="list-group-item">
-                <b>Type 5</b> <a class="float-right">{{ number_format($typeAverage[5], 2) }}</a>
-              </li>
-              <li class="list-group-item">
-                <b>Type 6</b> <a class="float-right">{{ number_format($typeAverage[6], 2) }}</a>
-              </li>
-              <li class="list-group-item">
-                <b>Type 7</b> <a class="float-right">{{ number_format($typeAverage[7], 2) }}</a>
-              </li>
-              <li class="list-group-item">
-                <b>Type 8</b> <a class="float-right">{{ number_format($typeAverage[8], 2) }}</a>
-              </li>
-              <li class="list-group-item">
-                <b>他</b> <a class="float-right">{{ number_format($typeAverage[9], 2) }}</a>
+                <b>他</b> <a class="float-right">{{ number_format($typeAverage[5], 2) }}</a>
               </li>
               <li class="list-group-item">
                 <b>Status</b>

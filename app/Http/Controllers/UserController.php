@@ -85,7 +85,7 @@ class UserController extends Controller
     {
         $typeAverage = array();
         $average = 0;
-        for ($i = 0; $i <= 9; $i++) {
+        for ($i = 0; $i <= 5; $i++) {
             $typeAverage[$i] = $user->getAverageByType($i);
             $average += $typeAverage[$i];
         }

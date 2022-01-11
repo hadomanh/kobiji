@@ -161,11 +161,7 @@
           '<option value=2>{{ __('演技') }}</option>' +
           '<option value=3>{{ __('楽器') }}</option>' +
           '<option value=4>{{ __('外国語') }}</option>' +
-          '<option value=5>{{ __('Type 5') }}</option>' +
-          '<option value=6>{{ __('Type 6') }}</option>' +
-          '<option value=7>{{ __('Type 7') }}</option>' +
-          '<option value=8>{{ __('Type 8') }}</option>' +
-          '<option value=9>{{ __('他') }}</option>' +
+          '<option value=5>{{ __('他') }}</option>' +
           '</select>' +
           '</div>' +
           '</div>';

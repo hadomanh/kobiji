@@ -147,11 +147,7 @@
                       <option value=2 {{ $skill->type == 2 ? "selected" : "" }}>{{ __('歌演技') }}</option>
                       <option value=3 {{ $skill->type == 3 ? "selected" : "" }}>{{ __('楽器') }}</option>
                       <option value=4 {{ $skill->type == 4 ? "selected" : "" }}>{{ __('外国語') }}</option>
-                      <option value=5 {{ $skill->type == 5 ? "selected" : "" }}>{{ __('Type 5') }}</option>
-                      <option value=6 {{ $skill->type == 6 ? "selected" : "" }}>{{ __('Type 6') }}</option>
-                      <option value=7 {{ $skill->type == 7 ? "selected" : "" }}>{{ __('Type 7') }}</option>
-                      <option value=8 {{ $skill->type == 8 ? "selected" : "" }}>{{ __('Type 8') }}</option>
-                      <option value=9 {{ $skill->type == 9 ? "selected" : "" }}>{{ __('他') }}</option>
+                      <option value=5 {{ $skill->type == 5 ? "selected" : "" }}>{{ __('他') }}</option>
                     </select>
                     </div>
                   </div>

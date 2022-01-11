@@ -61,7 +61,7 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 3; $i++) {
             $skill = new Skill();
             $skill->name = 'Skill ' . $i;
-            $skill->type = mt_rand(0, 9);
+            $skill->type = mt_rand(0, 5);
             $skill->ratio = mt_rand() / mt_getrandmax();
             $skill->subject()->associate($subject);
             $skill->save();
