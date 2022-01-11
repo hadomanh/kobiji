@@ -19,7 +19,7 @@ class CreateSubjectsTable extends Migration
             $table->string('code');
             $table->string('teacher');
             $table->string('target');
-            $table->string('session');
+            $table->integer('session');
             $table->string('description');
             $table->double('midterm')->default(0.3);
             $table->double('endterm')->default(0.7);

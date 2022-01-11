@@ -78,7 +78,7 @@ class LessonController extends Controller
      */
     public function edit(Lesson $lesson)
     {
-        //
+        return view('lesson.edit')->with(compact('lesson'));
     }
 
     /**
@@ -90,7 +90,14 @@ class LessonController extends Controller
      */
     public function update(Request $request, Lesson $lesson)
     {
-        //
+        $lesson->title = $request->title;
+        $lesson->date = $request->date;
+        $lesson->from = $request->from;
+        $lesson->to = $request->to;
+        $lesson->save();
+        $lesson->refresh();
+
+        return redirect()->route('subjects.show', $lesson->subject->id);
     }
 
     /**

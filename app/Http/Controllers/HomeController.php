@@ -26,16 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $color = array(
-            0 => '#f56954',
-            1 => '#f39c12',
-            2 => '#0073b7',
-            3 => '#00c0ef',
-            4 => '#00a65a',
-            5 => '#3c8dbc',
-        );
-        $timetable = array();
         if (Auth::user()->role === 'student') {
+            $color = array(
+                0 => '#f56954',
+                1 => '#f39c12',
+                2 => '#0073b7',
+                3 => '#00c0ef',
+                4 => '#00a65a',
+                5 => '#3c8dbc',
+            );
+            $timetable = array();
             foreach (Auth::user()->lessons->toArray() as $lesson) {
                 $randomColor = array_rand($color);
                 array_push($timetable, array(
@@ -47,9 +47,10 @@ class HomeController extends Controller
                     'borderColor' => $color[$randomColor],
                 ));
             }
+            $timetable = json_encode($timetable);
+            return view('home')->with(compact('timetable'));
         }
-        $timetable = json_encode($timetable);
-        return view('home')->with(compact('timetable'));
+        return redirect()->route('subjects.index');
     }
 
     public function logout() {

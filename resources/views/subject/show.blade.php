@@ -88,7 +88,7 @@
                         @foreach ($subject->skills as $skill)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           {{ $skill->name }}
-                          <span class="badge badge-primary badge-pill">{{ $skill->ratio }}</span>
+                          <span class="badge badge-primary badge-pill">{{ number_format($skill->ratio, 2) }}</span>
                         </li>
                         @endforeach
                       </ul>
@@ -100,63 +100,66 @@
 
             <!-- /.tab-pane -->
             <div class="tab-pane" id="timeline">
-              <div class="col-12">
-              <div class="post">
-                  <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          
-                          @if ($subject->students->count() > 0)
-                          <div class="card-body table-responsive p-0">
-                              <table class="table table-hover text-nowrap">
-                                <thead>
-                                  <tr>
-                                    <th>#</th>
-                                    <th>{{ __('名前') }}</th>
-                                    <th>{{ __('メール') }}</th>
-                                    @foreach ($subject->skills as $skill)
-                                      <th>{{ $skill->name }}</th>
-                                    @endforeach
-                                    <th>{{ __('最終成績') }}</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($subject->students as $student)
-                                        <tr>
-                                            <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $student->name }}</td>
-                                            <td>{{ $student->email }}</td>
-                                            @foreach ($subject->skills as $skill)
-                                              @foreach ($skill->students as $skill_student)
-                                                @if ($skill_student->id == $student->id)
-                                                  <td>{{ $skill_student->pivot->grade >= 0 ? $skill_student->pivot->grade : __('なし') }}</td>
-                                                @endif
+
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
+                  <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">成績の追加</a>
+                </div>
+  
+                <div class="col-12">
+                  <div class="post">
+                    <div class="row">
+                        <div class="col-12">
+                          <div class="card">
+                            
+                            @if ($subject->students->count() > 0)
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>{{ __('名前') }}</th>
+                                      <th>{{ __('メール') }}</th>
+                                      @foreach ($subject->skills as $skill)
+                                        <th>{{ $skill->name }}</th>
+                                      @endforeach
+                                      <th>{{ __('最終成績') }}</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      @foreach ($subject->students as $student)
+                                          <tr>
+                                              <td>{{ $loop->index + 1 }}</td>
+                                              <td>{{ $student->name }}</td>
+                                              <td>{{ $student->email }}</td>
+                                              @foreach ($subject->skills as $skill)
+                                                @foreach ($skill->students as $skill_student)
+                                                  @if ($skill_student->id == $student->id)
+                                                    <td>{{ $skill_student->pivot->grade >= 0 ? $skill_student->pivot->grade : __('なし') }}</td>
+                                                  @endif
+                                                @endforeach
                                               @endforeach
-                                            @endforeach
-                                            <td>{{ $student->getAverageBySubject($subject->id) }}</td>
-                                        </tr>
-                                        
-                                    @endforeach
-                                </tbody>
-                              </table>
-                            </div>
-                          @else
-                              <p class="text-center">データがありません</p>
-                          @endif
-                          <!-- /.card-body -->
+                                              <td>{{ number_format($student->getAverageBySubject($subject->id), 2) }}</td>
+                                          </tr>
+                                          
+                                      @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                            @else
+                                <p class="text-center">データがありません</p>
+                            @endif
+                            <!-- /.card-body -->
+                          </div>
+                          <!-- /.card -->
                         </div>
-                        <!-- /.card -->
+  
                       </div>
-
-                    </div>
-                    <!-- /.row -->
+                      <!-- /.row -->
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div class="col-12">
-              <a href="{{ route('subjects.registration.detail', $subject->id) }}" class="btn btn-primary">学生の追加</a>
-              <a href="{{ route('subjects.grading.detail', $subject->id) }}" class="btn btn-success">成績の追加</a>
-            </div>
               
             </div>
             <!-- /.tab-pane -->
@@ -191,7 +194,14 @@
                                               <td>{{ $lesson->from }}</td>
                                               <td>{{ $lesson->to }}</td>
                                               <td>
-                                                <a href="{{ route('lessons.attendance.detail', $lesson->id) }}" class="btn btn-outline-primary">View</a>
+                                                <a href="{{ route('lessons.attendance.detail', $lesson->id) }}" class="btn btn-outline-primary">
+                                                  <i class="fas fa-eye"></i> {{ __('閲覧') }}
+                                                </a>
+
+                                                <a href="{{ route('lessons.edit', $lesson->id) }}" class="btn btn-outline-warning">
+                                                  <i class="fas fa-edit"></i> {{ __('編集') }}
+                                                </a>
+
                                                 <div class="btn btn-outline-danger deleteItemBtn" data-url="{{ route('api.lessons.delete', $lesson->id) }}" data-toggle="modal" data-target="#modal-default">
                                                   {{ __('Delete') }}
                                                 </div>

@@ -90,7 +90,32 @@ class UserController extends Controller
             $average += $typeAverage[$i];
         }
         $average = $average / 10;
-        return view('user.show', compact('user', 'typeAverage', 'average'));
+
+        $color = array(
+            0 => '#f56954',
+            1 => '#f39c12',
+            2 => '#0073b7',
+            3 => '#00c0ef',
+            4 => '#00a65a',
+            5 => '#3c8dbc',
+        );
+        $timetable = array();
+        if ($user->role === 'student') {
+            foreach ($user->lessons->toArray() as $lesson) {
+                $randomColor = array_rand($color);
+                array_push($timetable, array(
+                    'title' => $lesson['title'],
+                    'from' => $lesson['date'] . ' ' . $lesson['from'],
+                    'to' => $lesson['date'] . ' ' . $lesson['to'],
+                    'allDay' => false,
+                    'backgroundColor' => $color[$randomColor],
+                    'borderColor' => $color[$randomColor],
+                ));
+            }
+        }
+        $timetable = json_encode($timetable);
+
+        return view('user.show', compact('user', 'typeAverage', 'average', 'timetable'));
     }
 
     /**

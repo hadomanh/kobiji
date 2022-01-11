@@ -14,9 +14,9 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
-                  <label>{{ __('Choose Student') }}</label>
+                  <label>{{ __('Choose Talent') }}</label>
                   <div class="select2-purple">
-                    <select class="select2" name="students[]" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                    <select class="select2" name="students[]" multiple="multiple" data-placeholder="Select talent" data-dropdown-css-class="select2-purple" style="width: 100%;">
                         @foreach ($students as $student)
                             <option
                             value="{{ $student->id }}"

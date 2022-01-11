@@ -31,7 +31,7 @@
               <!-- text input -->
               <div class="form-group">
                 <label>{{ __('レッスン数') }}:</label>
-                <input type="text" name="session" class="form-control" placeholder="Number of sessions..." required>
+                <input type="number" min="1" name="session" class="form-control" placeholder="Number of sessions..." required>
               </div>
             </div>
 

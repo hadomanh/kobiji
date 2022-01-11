@@ -6,6 +6,7 @@ use App\Models\Skill;
 use App\Models\Subject;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -85,6 +86,16 @@ class SubjectController extends Controller
     public function show(Subject $subject)
     {
         return view('subject.show')->with(compact('subject'));
+    }
+
+    public function studentShow(Subject $subject)
+    {
+        if (Auth::user()->role != 'student') {
+            return Redirect::back()->withErrors([
+                'error' => 'You are not authorized to view this page.'
+            ]);
+        }
+        return view('subject.student-show')->with(compact('subject'));
     }
 
     /**

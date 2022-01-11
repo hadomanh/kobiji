@@ -26,10 +26,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/subjects/student-registration', 'SubjectController@studentRegistration')->name('subjects.student-registration');
     Route::get('/subjects/student-registration-submit/{subject}', 'SubjectController@studentRegistrationSubmit')->name('subjects.student-registration-submit');
+    Route::get('subjects/student/{subject}', 'SubjectController@studentShow')->name('subjects.student-show');
 
     Route::middleware(['admin.only'])->group(function () {
         Route::get('subjects/{subject}/edit', 'SubjectController@edit')->name('subjects.edit');
         Route::put('subjects/{subject}', 'SubjectController@update')->name('subjects.update');
+
+        Route::get('lessons/{lesson}/edit', 'LessonController@edit')->name('lessons.edit');
+        Route::put('lessons/{lesson}', 'LessonController@update')->name('lessons.update');
     });
 
     Route::middleware(['manager.only'])->group(function () {

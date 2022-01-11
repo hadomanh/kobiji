@@ -106,7 +106,7 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-user"></i>
                 <p>
-                  ユーザー
+                  {{ __('ユーザ管理') }}
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -114,27 +114,27 @@
                 <li class="nav-item">
                   <a href="{{ route('users.index', ['role' => 'student']) }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>学生</p>
+                    <p>{{ __('学生') }}</p>
                   </a>
                 </li>
                 @if (Auth::user()->role === 'admin')
                   <li class="nav-item">
                     <a href="{{ route('users.index', 'admin') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>管理者</p>
+                      <p>{{ __('管理者') }}</p>
                     </a>
                   </li>
                 @endif
                 <li class="nav-item">
                   <a href="{{ route('users.index', 'manager') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>マネジャー</p>
+                    <p>{{ __('マネジャー') }}</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('users.create') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>追加</p>
+                    <p>{{ __('新規登録') }}</p>
                   </a>
                 </li>
               </ul>
@@ -145,24 +145,25 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-book"></i>
                 <p>
-                  コース
+                  {{ __('コース管理') }}
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ route('subjects.create') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>追加</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="{{ route('subjects.index') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>管理</p>
+                    <p>{{ __('コース一覧') }}</p>
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="{{ route('subjects.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>{{ __('新規登録') }}</p>
+                  </a>
+                </li>
+
+                {{-- <li class="nav-item">
                   <a href="{{ route('subjects.registration') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>学生の追加</p>
@@ -173,7 +174,8 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>グレーディング</p>
                   </a>
-                </li>
+                </li> --}}
+
               </ul>
             </li>
 
