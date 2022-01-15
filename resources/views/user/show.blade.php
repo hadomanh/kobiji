@@ -20,7 +20,7 @@
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
-                <b>Average</b> <a class="float-right">{{ number_format($average, 2) }}</a>
+                <b>平均</b> <a class="float-right">{{ number_format($average, 2) }}</a>
               </li>
               <li class="list-group-item">
                 <b>ダンス</b> <a class="float-right">{{ number_format($typeAverage[0], 2) }}</a>
@@ -41,7 +41,7 @@
                 <b>他</b> <a class="float-right">{{ number_format($typeAverage[5], 2) }}</a>
               </li>
               <li class="list-group-item">
-                <b>Status</b>
+                <b>ステータス</b>
                 @if ($user->active)
                     <a class="float-right text-success">{{ __('アクティブ') }}</a>
                 @else
@@ -64,7 +64,7 @@
           <div class="card-header p-2">
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">{{ __('コース一覧') }}</a></li>
-              <li id="timelineBtn" class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+              <li id="timelineBtn" class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">カレンダー</a></li>
               {{-- <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li> --}}
             </ul>
           </div><!-- /.card-header -->
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-12">
                               <div class="card">
-                                
+
                                 @if ($user->subjects->count() > 0)
                                 <div class="card-body table-responsive p-0">
                                     <table class="table table-hover text-nowrap">
@@ -105,12 +105,12 @@
                                                     <td class="text-center">{{ __('なし') }}</td>
                                                   @endif --}}
                                                   <td class="text-center">{{ number_format($user->getAverageBySubject($subject->id), 2) }}</td>
-                                                  <td><a href="{{ route('subjects.student-show', $subject->id) }}" class="btn btn-outline-primary">View</a></td>
-                                                  
+                                                  <td><a href="{{ route('subjects.student-show', $subject->id) }}" class="btn btn-outline-primary">見る</a></td>
+
                                               </tr>
-                                              
+
                                           @endforeach
-                                          
+
                                       </tbody>
                                     </table>
                                   </div>
@@ -128,7 +128,7 @@
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="timeline">
-                
+
                 <div id="calendar"></div>
               </div>
               <!-- /.tab-pane -->
@@ -222,7 +222,7 @@
         })
     });
     $(function () {
-        
+
         var date = new Date();
         var d = date.getDate(),
             m = date.getMonth(),
@@ -247,7 +247,7 @@
     timelineBtnClicked = true;
   });
 
-    
+
 </script>
 
 @endpush

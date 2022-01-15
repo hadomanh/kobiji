@@ -54,7 +54,7 @@
       </li>
       @if (Auth::user()->role == 'student')
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ route('users.show', Auth::user()->id) }}" class="nav-link">About me</a>
+          <a href="{{ route('users.show', Auth::user()->id) }}" class="nav-link">プロフィール閲覧</a>
         </li>
       @endif
       <li class="nav-item d-none d-sm-inline-block">
@@ -83,7 +83,7 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        
+
         <div class="image">
           <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle elevation-2" style="width: 35px; height: 35px;" alt="User Image">
         </div>
@@ -185,7 +185,7 @@
       @else
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            
+
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="fas fa-book"></i>
