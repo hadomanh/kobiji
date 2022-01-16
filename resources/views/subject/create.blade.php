@@ -148,13 +148,13 @@
         skill += '<div class="row">';
         skill += '<div class="col-sm-4">' +
           '<div class="form-group">' +
-          '<label>{{ __('Skill') }}:</label>' +
+          '<label>{{ __('スキル') }}:</label>' +
           '<input type="text" name="skill[]" class="form-control" placeholder="Skill..." required>' +
           '</div>' +
           '</div>';
         skill += '<div class="col-sm-4">' +
           '<div class="form-group">' +
-          '<label>{{ __('Type') }}:</label>' +
+          '<label>{{ __('スキル種類') }}:</label>' +
           '<select name="type[]" class="form-control" required>' +
           '<option value=0>{{ __('ダンス') }}</option>' +
           '<option value=1>{{ __('歌い') }}</option>' +
@@ -167,8 +167,8 @@
           '</div>';
         skill += '<div class="col-sm-4">' +
           '<div class="form-group">' +
-          '<label>{{ __('Ratio') }}:</label>' +
-          '<input type="number" min="0" name="ratio[]" step="any" class="form-control" placeholder="Ratio..." required>' +
+          '<label>{{ __('ウェイト') }}:</label>' +
+          '<input type="number" min="0" name="ratio[]" step="any" class="form-control" placeholder="Weight..." required>' +
           '</div>' +
           '</div>';
         skill += '</div>';

@@ -23,13 +23,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('ログインしました!') }}
                 </div>
             </div>
         </div>
     </div>
     @endif
-    
+
 </div>
 
 @endsection
@@ -54,7 +54,7 @@
         })
     });
     $(function () {
-        
+
         var date = new Date();
         var d = date.getDate(),
             m = date.getMonth(),
@@ -65,6 +65,7 @@
         var calendarEl = document.getElementById("calendar");
 
         var calendar = new Calendar(calendarEl, {
+            locale: "ja",
             headerToolbar: {
                 left: "prev,next today",
                 center: "title",
