@@ -22,6 +22,59 @@
 
                 <div class="offset-sm-4 col-sm-4">
                     <div class="form-group">
+                        <label>{{ __('Description') }}:</label>
+                        <textarea rows="3" name="description" class="form-control" placeholder="Description..." required>{{ $user->description }}</textarea>
+                    </div>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4">
+                    <div class="form-group">
+                        <label>{{ __('Nationality') }}:</label>
+                        <select name="nationality" class="form-control" required>
+                            <option value="Vietnam" {{ $user->nationality === 'Vietnam' ? 'selected' : '' }}>{{ __('Vietnam') }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4">
+                    <div class="form-group">
+                        <label>{{ __('D.O.B') }}:</label>
+                        <input type="date" name="dob" value="{{ $user->dob }}" class="form-control" placeholder="DOB..." required>
+                    </div>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>{{ __('Height') }}:</label>
+                            <input type="number" name="height" min="1" class="form-control" value="{{ $user->height }}" placeholder="Name..." required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>{{ __('Unit') }}:</label>
+                            <select name="heightu" class="form-control" required>
+                                <option value="m">{{ __('Meters') }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>{{ __('Weight') }}:</label>
+                            <input type="number" name="weight" min="1" class="form-control" value="{{ $user->weight }}" placeholder="Name..." required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>{{ __('Unit') }}:</label>
+                            <select name="weightu" class="form-control" required>
+                                <option value="kg">{{ __('Kilograms') }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="offset-sm-4 col-sm-4">
+                    <div class="form-group">
                         <label for="uploadWrapper">アバタ:</label>
                         <div id="uploadWrapper">
                             <label class="upload-trigger" for="js--upload">

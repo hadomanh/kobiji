@@ -21,6 +21,13 @@ class UserSeeder extends Seeder
         $user->role = 'manager';
         $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
+        $user->height = '170';
+        $user->heightu = 'm';
+        $user->weight = '70';
+        $user->weightu = 'kg';
+        $user->dob = '1996-01-01';
+        $user->nationality = 'Vietnam';
+        $user->description = 'Something fun';
 
         $user->save();
 
@@ -30,6 +37,13 @@ class UserSeeder extends Seeder
         $user->role = 'admin';
         $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
+        $user->height = '170';
+        $user->heightu = 'm';
+        $user->weight = '70';
+        $user->weightu = 'kg';
+        $user->dob = '1996-01-01';
+        $user->nationality = 'Vietnam';
+        $user->description = 'Something fun';
 
         $user->save();
 
@@ -78,6 +92,13 @@ class UserSeeder extends Seeder
             $user->role = 'student';
             $user->password = bcrypt('12345678');
             $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
+            $user->height = '170';
+            $user->heightu = 'm';
+            $user->weight = '70';
+            $user->weightu = 'kg';
+            $user->dob = '1996-01-01';
+            $user->nationality = 'Vietnam';
+            $user->description = 'Something fun';
 
             $user->save();
 

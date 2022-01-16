@@ -18,7 +18,23 @@
 
             <p class="text-muted text-center">{{ $user->email }}</p>
 
+            <blockquote class="blockquote">
+              <p>{{ $user->description }}</p>
+            </blockquote>
+
             <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b>Nationality</b> <a class="float-right">{{ $user->nationality }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>D.O.B</b> <a class="float-right">{{ date('d M, Y', strtotime($user->dob)) }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Height</b> <a class="float-right">{{ $user->height . $user->heightu }}</a>
+              </li>
+              <li class="list-group-item">
+                <b>Weight</b> <a class="float-right">{{ $user->weight . $user->weightu }}</a>
+              </li>
               <li class="list-group-item">
                 <b>平均</b> <a class="float-right">{{ number_format($average, 2) }}</a>
               </li>
@@ -40,17 +56,17 @@
               <li class="list-group-item">
                 <b>他</b> <a class="float-right">{{ number_format($typeAverage[5], 2) }}</a>
               </li>
-              <li class="list-group-item">
+              {{-- <li class="list-group-item">
                 <b>ステータス</b>
                 @if ($user->active)
                     <a class="float-right text-success">{{ __('アクティブ') }}</a>
                 @else
                     <a class="float-right text-danger">{{ __('非アクティブ') }}</a>
                 @endif
-              </li>
+              </li> --}}
             </ul>
 
-            <a href="{{ route('home')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('戻る') }}</b></a>
+            {{-- <a href="{{ route('home')}}" class="btn btn-outline-secondary btn-block"><b>{{ __('戻る') }}</b></a> --}}
           </div>
           <!-- /.card-body -->
         </div>

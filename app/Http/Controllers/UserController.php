@@ -58,6 +58,13 @@ class UserController extends Controller
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->height = $request->height;
+            $user->weight = $request->weight;
+            $user->heightu = $request->heightu;
+            $user->weightu = $request->weightu;
+            $user->dob = $request->dob;
+            $user->nationality = $request->nationality;
+            $user->description = $request->description;
             $user->password = bcrypt($request->password);
             $user->role = $request->role;
             $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
@@ -144,6 +151,13 @@ class UserController extends Controller
             $user->avatar = 'storage/' . $request->file('avatar')->storeAs('avatar', $avatarFileName, 'public');
         }
         $user->name = $request->name;
+        $user->height = $request->height;
+        $user->weight = $request->weight;
+        $user->heightu = $request->heightu;
+        $user->weightu = $request->weightu;
+        $user->dob = $request->dob;
+        $user->nationality = $request->nationality;
+        $user->description = $request->description;
         $user->save();
         return redirect()->route('home', $user->role);
     }
