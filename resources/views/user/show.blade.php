@@ -24,16 +24,16 @@
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
-                <b>Nationality</b> <a class="float-right">{{ $user->nationality }}</a>
+                <b>国籍</b> <a class="float-right">{{ $user->nationality }}</a>
               </li>
               <li class="list-group-item">
-                <b>D.O.B</b> <a class="float-right">{{ date('d M, Y', strtotime($user->dob)) }}</a>
+                <b>生年月日</b> <a class="float-right">{{ date('d M, Y', strtotime($user->dob)) }}</a>
               </li>
               <li class="list-group-item">
-                <b>Height</b> <a class="float-right">{{ $user->height . $user->heightu }}</a>
+                <b>身長</b> <a class="float-right">{{ $user->height . $user->heightu }}</a>
               </li>
               <li class="list-group-item">
-                <b>Weight</b> <a class="float-right">{{ $user->weight . $user->weightu }}</a>
+                <b>体重</b> <a class="float-right">{{ $user->weight . $user->weightu }}</a>
               </li>
               <li class="list-group-item">
                 <b>平均</b> <a class="float-right">{{ number_format($average, 2) }}</a>

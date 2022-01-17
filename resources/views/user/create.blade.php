@@ -23,7 +23,7 @@
                     <input type="text" name="name" class="form-control" placeholder="Name..." required>
                   </div>
                 </div>
-    
+
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
@@ -35,23 +35,26 @@
 
                 <div class="offset-sm-4 col-sm-4">
                   <div class="form-group">
-                      <label>{{ __('Description') }}:</label>
+                      <label>{{ __('短い紹介') }}:</label>
                       <textarea rows="3" name="description" class="form-control" placeholder="Description..." required></textarea>
                   </div>
                 </div>
 
                 <div class="offset-sm-4 col-sm-4">
                     <div class="form-group">
-                        <label>{{ __('Nationality') }}:</label>
+                        <label>{{ __('国籍') }}:</label>
                         <select name="nationality" class="form-control" required>
-                            <option value="Vietnam">{{ __('Vietnam') }}</option>
+                            <option value="Vietnam">{{ __('ベトナム') }}</option>
+                            <option value="Japan">{{ __('日本') }}</option>
+                            <option value="South Korea">{{ __('韓国') }}</option>
+                            <option value="China">{{ __('中国') }}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="offset-sm-4 col-sm-4">
                     <div class="form-group">
-                        <label>{{ __('D.O.B') }}:</label>
+                        <label>{{ __('生年月日') }}:</label>
                         <input type="date" name="dob" class="form-control" placeholder="DOB..." required>
                     </div>
                 </div>
@@ -59,13 +62,13 @@
                 <div class="offset-sm-4 col-sm-4">
                     <div class="row">
                         <div class="form-group col-6">
-                            <label>{{ __('Height') }}:</label>
+                            <label>{{ __('身長') }}:</label>
                             <input type="number" name="height" min="1" class="form-control" placeholder="Name..." required>
                         </div>
                         <div class="form-group col-6">
-                            <label>{{ __('Unit') }}:</label>
+                            <label>{{ __('単位') }}:</label>
                             <select name="heightu" class="form-control" required>
-                                <option value="m">{{ __('Meters') }}</option>
+                                <option value="cm">{{ __('センチメートル') }}</option>
                             </select>
                         </div>
                     </div>
@@ -74,19 +77,19 @@
                 <div class="offset-sm-4 col-sm-4">
                     <div class="row">
                         <div class="form-group col-6">
-                            <label>{{ __('Weight') }}:</label>
+                            <label>{{ __('体重') }}:</label>
                             <input type="number" name="weight" min="1" class="form-control" placeholder="Name..." required>
                         </div>
                         <div class="form-group col-6">
-                            <label>{{ __('Unit') }}:</label>
+                            <label>{{ __('単位') }}:</label>
                             <select name="weightu" class="form-control" required>
-                                <option value="kg">{{ __('Kilograms') }}</option>
+                                <option value="kg">{{ __('キログラム') }}</option>
                             </select>
                         </div>
                     </div>
                 </div>
-              
-    
+
+
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
@@ -94,7 +97,7 @@
                     <input type="password" id="password-first" name="password" class="form-control" placeholder="Password..." required>
                   </div>
                 </div>
-    
+
                 <div class="offset-sm-4 col-sm-4">
                   <!-- text input -->
                   <div class="form-group">
@@ -116,14 +119,14 @@
                     </div>
                     <!-- /.form-group -->
                 </div>
-                
+
             </div>
 
             @if($errors->any())
-            
+
                 <div class="text-danger text-center">Invalid Email: <b>{{ $errors->first('email') }}</b></div>
             @endif
-    
+
             <div class="row">
                 <div class="col-3"></div>
                 <button class="btn btn-primary col-6" id="submitBtn" type="submit" disabled>{{ __('登録') }}</button>
@@ -134,7 +137,7 @@
                 <a class="btn btn-outline-secondary col-6" href="{{ url()->previous() }}">{{ __('キャンセル') }}</a>
             </div>
             <br>
-    
+
           </form>
         </div>
         <!-- /.card-body -->
