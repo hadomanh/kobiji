@@ -55,7 +55,7 @@
                         <div class="form-group col-6">
                             <label>{{ __('単位') }}:</label>
                             <select name="heightu" class="form-control" required>
-                                <option value="m">{{ __('センチメートル') }}</option>
+                                <option value="cm">{{ __('センチメートル') }}</option>
                             </select>
                         </div>
                     </div>
