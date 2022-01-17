@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
         $user->height = '170';
-        $user->heightu = 'm';
+        $user->heightu = 'cm';
         $user->weight = '70';
         $user->weightu = 'kg';
         $user->dob = '1996-01-01';
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('12345678');
         $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
         $user->height = '170';
-        $user->heightu = 'm';
+        $user->heightu = 'cm';
         $user->weight = '70';
         $user->weightu = 'kg';
         $user->dob = '1996-01-01';
@@ -93,7 +93,7 @@ class UserSeeder extends Seeder
             $user->password = bcrypt('12345678');
             $user->avatar = 'bower_components/admin-lte/dist/img/user2-160x160.jpg';
             $user->height = '170';
-            $user->heightu = 'm';
+            $user->heightu = 'cm';
             $user->weight = '70';
             $user->weightu = 'kg';
             $user->dob = '1996-01-01';
