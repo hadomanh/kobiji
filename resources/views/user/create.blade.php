@@ -44,7 +44,10 @@
                     <div class="form-group">
                         <label>{{ __('国籍') }}:</label>
                         <select name="nationality" class="form-control" required>
-                            <option value="Vietnam">{{ __('Vietnam') }}</option>
+                            <option value="Vietnam">{{ __('ベトナム') }}</option>
+                            <option value="Japan">{{ __('日本') }}</option>
+                            <option value="South Korea">{{ __('韓国') }}</option>
+                            <option value="China">{{ __('中国') }}</option>
                         </select>
                     </div>
                 </div>
@@ -64,7 +67,7 @@
                         </div>
                         <div class="form-group col-6">
                             <label>{{ __('単位') }}:</label>
-                            <select name="heightuc" class="form-control" required>
+                            <select name="heightu" class="form-control" required>
                                 <option value="cm">{{ __('センチメートル') }}</option>
                             </select>
                         </div>
